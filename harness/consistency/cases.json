@@ -1,0 +1,56 @@
+{
+  "protocol": "dependent-decisions-v1",
+  "calibrationMinimumCases": 50,
+  "fields": {
+    "impact": {
+      "type": "enum",
+      "choices": ["NONE", "DEGRADED", "OUTAGE"],
+      "description": "Current customer impact.",
+      "choice_descriptions": {
+        "NONE": "No customer-facing failure is occurring.",
+        "DEGRADED": "Some customers or a non-critical path are affected, but a usable path remains.",
+        "OUTAGE": "A critical customer operation is unavailable with no usable workaround."
+      }
+    },
+    "urgency": {
+      "type": "enum",
+      "choices": ["LOW", "NORMAL", "IMMEDIATE"],
+      "description": "Required response speed under the incident policy.",
+      "choice_descriptions": {
+        "LOW": "No active customer impact; backlog handling is sufficient.",
+        "NORMAL": "Active degradation needs prompt business-hours handling.",
+        "IMMEDIATE": "An outage needs immediate incident response."
+      }
+    },
+    "page_on_call": {
+      "type": "boolean",
+      "description": "Whether to page the on-call engineer now. Page only for an OUTAGE."
+    },
+    "allow_auto_close": {
+      "type": "boolean",
+      "description": "Whether automation may close the ticket without human review. Never auto-close an OUTAGE, an IMMEDIATE case, or any case that pages on-call."
+    }
+  },
+  "constraints": [
+    {"id": "outage-is-immediate", "kind": "implies", "if": {"field": "impact", "equals": "OUTAGE"}, "then": {"field": "urgency", "equals": "IMMEDIATE"}},
+    {"id": "outage-pages", "kind": "implies", "if": {"field": "impact", "equals": "OUTAGE"}, "then": {"field": "page_on_call", "equals": true}},
+    {"id": "page-means-outage", "kind": "implies", "if": {"field": "page_on_call", "equals": true}, "then": {"field": "impact", "equals": "OUTAGE"}},
+    {"id": "page-needs-review", "kind": "implies", "if": {"field": "page_on_call", "equals": true}, "then": {"field": "allow_auto_close", "equals": false}},
+    {"id": "immediate-needs-review", "kind": "implies", "if": {"field": "urgency", "equals": "IMMEDIATE"}, "then": {"field": "allow_auto_close", "equals": false}},
+    {"id": "no-impact-does-not-page", "kind": "implies", "if": {"field": "impact", "equals": "NONE"}, "then": {"field": "page_on_call", "equals": false}}
+  ],
+  "cases": [
+    {"id": "checkout-down", "context": "Checkout returns HTTP 500 for every customer. No purchase can complete and there is no workaround.", "expected": {"impact": "OUTAGE", "urgency": "IMMEDIATE", "page_on_call": true, "allow_auto_close": false}},
+    {"id": "login-down", "context": "All sign-in attempts fail. Existing sessions still work, but signed-out customers have no workaround.", "expected": {"impact": "OUTAGE", "urgency": "IMMEDIATE", "page_on_call": true, "allow_auto_close": false}},
+    {"id": "regional-card-failures", "context": "Card payments fail for customers in one region. Bank transfer remains available and succeeds.", "expected": {"impact": "DEGRADED", "urgency": "NORMAL", "page_on_call": false, "allow_auto_close": false}},
+    {"id": "slow-search", "context": "Search latency increased from 300 ms to 2 seconds for about 20% of requests. Results still load.", "expected": {"impact": "DEGRADED", "urgency": "NORMAL", "page_on_call": false, "allow_auto_close": false}},
+    {"id": "optional-export", "context": "The optional CSV export fails for some accounts. The dashboard and API remain available.", "expected": {"impact": "DEGRADED", "urgency": "NORMAL", "page_on_call": false, "allow_auto_close": false}},
+    {"id": "resolved-retry", "context": "One retry failed ten minutes ago. The retry then succeeded and monitoring shows no current customer-facing failure.", "expected": {"impact": "NONE", "urgency": "LOW", "page_on_call": false, "allow_auto_close": true}},
+    {"id": "cosmetic-spacing", "context": "A settings-page heading has uneven spacing. Every control works and no customer operation is affected.", "expected": {"impact": "NONE", "urgency": "LOW", "page_on_call": false, "allow_auto_close": true}},
+    {"id": "feature-request", "context": "A customer asks for a new dark-mode option. Nothing is broken and there is no current customer impact.", "expected": {"impact": "NONE", "urgency": "LOW", "page_on_call": false, "allow_auto_close": true}},
+    {"id": "mobile-workaround", "context": "The mobile checkout button is unresponsive for some Android customers. The web checkout is a documented working workaround.", "expected": {"impact": "DEGRADED", "urgency": "NORMAL", "page_on_call": false, "allow_auto_close": false}},
+    {"id": "database-read-only", "context": "The primary database is read-only. All writes fail, customers cannot place or update orders, and no fallback is available.", "expected": {"impact": "OUTAGE", "urgency": "IMMEDIATE", "page_on_call": true, "allow_auto_close": false}},
+    {"id": "staging-only", "context": "A deployment to the internal staging environment failed. Production is healthy and customers are unaffected.", "expected": {"impact": "NONE", "urgency": "LOW", "page_on_call": false, "allow_auto_close": true}},
+    {"id": "email-delay", "context": "Transactional emails arrive 15 minutes late. Customers can still complete every operation and can view receipts in the dashboard.", "expected": {"impact": "DEGRADED", "urgency": "NORMAL", "page_on_call": false, "allow_auto_close": false}}
+  ]
+}
