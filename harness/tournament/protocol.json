@@ -1,0 +1,37 @@
+{
+  "protocol": "absolute-vs-tournament-v1",
+  "status": "preregistered-no-results",
+  "backendScope": "Laya CPU only",
+  "candidateCounts": [16, 64, 100],
+  "tournament": {"groupSize": 8, "seeds": [1701, 2903, 4517]},
+  "fixtures": [
+    {
+      "id": "parental-leave",
+      "query": "having a baby soon, how many weeks can I take off?",
+      "expectedId": "parental-leave",
+      "expectedDescription": "Parental leave entitlement: birth parents may take up to 18 weeks paid leave followed by unpaid leave.",
+      "distractorTopic": "employee policy pages unrelated to parental leave duration"
+    },
+    {
+      "id": "international-remote",
+      "query": "can I work from another country for two months?",
+      "expectedId": "international-remote",
+      "expectedDescription": "International remote work: approval, tax, payroll and security rules for temporarily working outside the employing country.",
+      "distractorTopic": "workplace and travel policies that do not govern temporary work from another country"
+    },
+    {
+      "id": "duplicate-charge",
+      "query": "a customer says their card was charged twice",
+      "expectedId": "duplicate-charge",
+      "expectedDescription": "Duplicate card charge: preserve both transaction IDs, verify settlement and route a duplicate capture for correction.",
+      "distractorTopic": "billing support pages that do not handle two settled charges for one purchase"
+    }
+  ],
+  "metrics": ["top1Accuracy", "winnerMargin", "calls", "candidatesScored", "wallTimeMs", "winnerStabilityAcrossSeeds"],
+  "evidenceRules": [
+    "Every fixture, candidate order, bracket seed and intermediate winner is retained.",
+    "No calibration claim is made.",
+    "Counts above 100 are excluded from the primary run because Laya's published prompt budget can allocate too few tokens per option.",
+    "Results apply only to the exact Laya CPU revision and runtime recorded in the artifact; they are not Jev or Qwen measurements."
+  ]
+}
