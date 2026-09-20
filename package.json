@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "harness": "tsx harness/src/run.ts",
     "harness:preflight": "tsx harness/src/preflight.ts",
-    "gate:calibrate": "tsx harness/src/gate-calibration.ts"
+    "gate:calibrate": "tsx harness/src/gate-calibration.ts",
+    "consistency:score": "tsx harness/consistency/evaluate.ts",
+    "consistency:jev": "tsx harness/consistency/run-jev.ts"
   },
   "dependencies": {
     "@playwright/test": "^1.48.0",
