@@ -48,3 +48,24 @@ The runner imports Bespoke's `CudaCandidateScorer`; it does not imitate Nimble o
 ## Evidence rules
 
 Bespoke's reported holdout scores are vendor evidence, not Lab measurements. A Lab comparison is publishable only after the exact model revision, runtime, raw prediction artifact, evaluator report, and case-set commit are recorded. Nimble probabilities are not assumed calibrated.
+
+## Laya CPU runner
+
+Laya is the small open CPU control. Install its published SDK, then run the same locked fixtures:
+
+```sh
+python -m venv .venv-laya
+. .venv-laya/bin/activate
+pip install laya==0.3.4
+USE_TF=0 python harness/consistency/run-laya.py \
+  --out harness/results/consistency-laya.json
+npm run consistency:score -- \
+  --predictions harness/results/consistency-laya.json \
+  --out harness/results/consistency-laya-report.json
+```
+
+The runner defaults to `convaiinnovations/laya` on CPU and uses the official
+`laya` SDK. Laya's own model card says the root checkpoint is near chance on its
+typed-decisions zero-shot test and ships over-confident before temperature
+fitting. The harness therefore treats its probabilities as model output, not
+calibrated truth. The same 50-case gate for publishing Brier/ECE still applies.
