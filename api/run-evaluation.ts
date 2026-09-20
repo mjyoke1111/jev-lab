@@ -46,7 +46,7 @@ async function directJev(state: unknown, questions: Record<string, unknown>) {
   const response = await fetch('https://api.typesafe.ai/v1/systemone', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: 'jev-latest', state, questions }),
+    body: JSON.stringify({ model: 'jev-1.13.0', state, questions }),
   });
   if (!response.ok) { const upstreamBody = (await response.text()).slice(0, 4_000); console.error('typesafe_upstream_error', { status: response.status, statusText: response.statusText, body: upstreamBody }); throw new Error(`typesafe_${response.status}`); }
   const body = await response.json() as any;

@@ -94,7 +94,9 @@ The endpoint fails closed when either required secret is absent and rejects miss
 
 ### Direct Jev provider fallback
 
-Set `TYPESAFE_API_KEY` from the TypeSafe console to route only Jev choice and safety calls through `POST https://api.typesafe.ai/v1/systemone` with model `jev-latest`. Planner and baseline calls still use Vercel AI Gateway. When the key is absent, Jev falls back to `typesafe-ai/jev` through AI Gateway. The run JSON records `jevRoute`.
+New direct TypeSafe runs pin the concrete catalog id `jev-1.13.0`; floating aliases are not used in executable routes. Historical artifacts keep the model label they actually ran. Re-check the catalog and behavioral contract before changing this pin.
+
+Set `TYPESAFE_API_KEY` from the TypeSafe console to route only Jev choice and safety calls through `POST https://api.typesafe.ai/v1/systemone` with concrete model `jev-1.13.0`. Planner and baseline calls still use Vercel AI Gateway. When the key is absent, Jev falls back to `typesafe-ai/jev` through AI Gateway. The run JSON records `jevRoute`.
 
 ### Direct Groq planner and baseline
 
