@@ -101,3 +101,12 @@ Set `TYPESAFE_API_KEY` from the TypeSafe console to route only Jev choice and sa
 ### Direct Groq planner and baseline
 
 Set `GROQ_API_KEY` to route planner and baseline calls to Groq's OpenAI-compatible `https://api.groq.com/openai/v1/chat/completions`. `GROQ_MODEL` defaults to `openai/gpt-oss-20b`. The direct route uses Groq JSON Object mode, 2,048 completion tokens, low reasoning effort, and includes the exact schema in the system prompt; Zod validates every returned object before it can enter a run artifact. If the Groq key is absent, these calls fall back to Vercel AI Gateway. The run JSON records `plannerRoute`.
+
+## Independent Jev evidence used in the Lab
+
+Architecture choices in the Lab are informed by independent sources, but their measurements are not presented as this repository's results:
+
+- [aitejiu capability map](https://dev.to/aitejiu/benchmarking-jev-what-a-decision-model-can-and-cant-do-in-an-agent-harness-20po): 10 datasets, about 22.5k calls and $2.19 reported spend. The author reports perfect InjecAgent precision/recall at a 0.10 threshold on 1,105 cases, but weak trajectory-failure attribution (AUROC 0.560), a Korean-vs-English retrieval gap, a 255-option cap, about 32k shared context and text-only input. Their strongest engineering results came from decomposing judgments and composing them in deterministic code.
+- [hao_kang 100+ repository pattern catalogue](https://dev.to/hao_kang_82922526dfe5d934/we-read-100-jev-repositories-the-best-part-was-the-code-around-the-model-call-am3): routing first, action and target in one request, semantic grep, explicit fail-open/fail-closed behavior, and "code first, JEV second, LLM last."
+
+These sources support the Lab's architecture and test design. They do not validate any individual live run here. Published Lab numbers always come from the attached replay artifact for that run.
