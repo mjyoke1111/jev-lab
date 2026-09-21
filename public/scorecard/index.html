@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How breakable is your agent? - 2-minute readiness scorecard</title>
+<meta name="description" content="Ten questions, two minutes: find out how ready your AI agent is for production, and exactly which failure categories you're exposed to.">
+<style>
+  :root { --bg:#0b0e14; --fg:#e6e9ef; --dim:#9aa4b2; --accent:#4ade80; --card:#131824; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif; }
+  .wrap { max-width:680px; margin:0 auto; padding:56px 24px; }
+  h1 { font-size:32px; line-height:1.2; letter-spacing:-0.02em; }
+  h1 span { color:var(--accent); }
+  .sub { color:var(--dim); margin:16px 0 32px; }
+  .q { background:var(--card); border:1px solid #1f2635; border-radius:14px; padding:18px 20px; margin-top:14px; }
+  .q p { font-weight:600; margin-bottom:10px; }
+  .q label { display:block; color:var(--dim); padding:6px 0 6px 28px; position:relative; cursor:pointer; }
+  .q input { position:absolute; left:0; top:9px; accent-color:var(--accent); }
+  .cta { display:inline-block; background:var(--accent); color:#0b0e14; font-weight:600;
+         padding:14px 28px; border-radius:10px; text-decoration:none; border:0; font-size:16px; cursor:pointer; }
+  .cta2 { display:inline-block; color:var(--fg); border:1px solid #2a3342;
+          padding:14px 28px; border-radius:10px; text-decoration:none; margin-left:12px; }
+  #result { display:none; background:var(--card); border:1px solid #1f2635; border-radius:14px; padding:24px; margin-top:32px; }
+  .score { font-size:44px; font-weight:700; }
+  .exposed { color:var(--dim); margin:12px 0 20px; }
+  .exposed li { margin:4px 0; }
+  ul { padding-left:20px; }
+  .fine { color:var(--dim); font-size:14px; margin-top:16px; }
+  footer { color:var(--dim); font-size:13px; margin-top:48px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>How breakable is your agent? <span>2-minute scorecard.</span></h1>
+  <p class="sub">Ten questions drawn from the 15 failure categories we test in real agent
+     evaluations. Answer honestly - the output tells you which categories you're exposed to.</p>
+  <form id="f"></form>
+  <p style="margin-top:24px"><button class="cta" type="submit" form="f">Score my agent</button></p>
+  <div id="result">
+    <div class="score" id="score"></div>
+    <p id="verdict" style="color:var(--dim)"></p>
+    <div class="exposed" id="exposed"></div>
+    <a class="cta" href="https://buymeacoffee.com/mjyoke1111">Get the full 120-case audit - AU$149</a>
+    <a class="cta2" href="../sample-audit/report.html">See a real sample audit</a>
+    <p class="fine">The audit tests all 15 categories against your live endpoint: prioritized
+       failure list with repro cases, HTML report, CI gate. 48-hour delivery, full refund if
+       we miss the window.</p>
+  </div>
+  <footer>No data leaves your browser. Answers are not stored or sent anywhere.</footer>
+</div>
+<script>
+const QUESTIONS = [
+  {t:"Does your agent call external tools (APIs, search, code execution)?", cat:"tool-use / multistep", rev:true},
+  {t:"Has it ever followed an instruction that came from inside a document, email, or web page it read?", cat:"prompt-injection resistance", rev:true},
+  {t:"Do you re-test the agent after every model or prompt change?", cat:"regression", rev:false},
+  {t:"Can a user get it to produce malformed JSON or broken structured output?", cat:"extraction / format", rev:true},
+  {t:"Has it ever invented a fact, citation, or tool result?", cat:"grounding", rev:true},
+  {t:"Does it refuse harmful requests consistently, even after 5+ turns of pressure?", cat:"safety / refusal", rev:false},
+  {t:"Does it handle inputs longer than a few pages (long documents, big threads)?", cat:"long context", rev:false},
+  {t:"Does it keep track of state correctly across multi-turn conversations?", cat:"multi-turn", rev:false},
+  {t:"Would you know within an hour if it started failing in production tonight?", cat:"monitoring / CI gate", rev:false},
+  {t:"Does it do arithmetic, units, and date logic correctly under pressure?", cat:"calculation / data analysis", rev:false},
+];
+const f = document.getElementById('f');
+QUESTIONS.forEach((q,i)=>{
+  const d = document.createElement('div'); d.className='q';
+  d.innerHTML = `<p>${i+1}. ${q.t}</p>
+    <label><input type="radio" name="q${i}" value="1">Yes</label>
+    <label><input type="radio" name="q${i}" value="0">No</label>
+    <label><input type="radio" name="q${i}" value="0.5">Not sure</label>`;
+  f.appendChild(d);
+});
+f.addEventListener('submit', e=>{
+  e.preventDefault();
+  let risk=0, exposed=new Set();
+  QUESTIONS.forEach((q,i)=>{
+    const v = f['q'+i].value; if(v==='') return;
+    const val = parseFloat(v);
+    const r = q.rev ? val : (1-val);
+    risk += r;
+    if(r >= 1) exposed.add(q.cat);
+    else if(r === 0.5) exposed.add(q.cat + " (unverified)");
+  });
+  const score = Math.max(0, Math.round(100 - risk*10));
+  document.getElementById('score').textContent = score + " / 100";
+  document.getElementById('verdict').textContent =
+    score >= 80 ? "Strong - but scores lie without adversarial tests. The categories below are where we'd still probe." :
+    score >= 50 ? "Exposed. Real failure categories are untested - these are the ones that bite in production." :
+    "High risk. This is the profile we see right before a public failure post-mortem.";
+  document.getElementById('exposed').innerHTML = "<b>Your exposure map:</b><ul>" +
+    [...exposed].map(c=>`<li>${c}</li>`).join('') + "</ul>";
+  document.getElementById('result').style.display='block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</html>
