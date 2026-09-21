@@ -1,0 +1,304 @@
+{
+  "inbox": {
+    "cohortSha256": "995ed10c49b11925325f24b4b18a3ddb353a765599a144744ec51ffa82811b67",
+    "createdAt": "2026-09-21T12:45:57.951Z",
+    "evidence": {
+      "runSha256": "16fd4555b04e8688691fc1cdbe3896b44efbb609432a613a7609d7a43f9cb619"
+    },
+    "model": "jev-1.13.0",
+    "pack": "inbox",
+    "policyVersion": "exact-label-match-v1",
+    "pricing": {
+      "inputUsdPerMillion": 0.042,
+      "output": "free",
+      "snapshotAt": "2026-09-21"
+    },
+    "promptVersion": "challenge-v1.0.0",
+    "provider": "typesafe-ai",
+    "results": [
+      {
+        "expected": "act",
+        "id": "i1",
+        "jev": {
+          "choice": "act",
+          "probabilities": {
+            "act": 1,
+            "ignore": 0,
+            "keep": 0,
+            "learn": 0
+          },
+          "winningProbability": 1
+        },
+        "keyword": "act",
+        "majority": "act",
+        "text": "Please approve the revised launch date by 3pm."
+      },
+      {
+        "expected": "learn",
+        "id": "i2",
+        "jev": {
+          "choice": "learn",
+          "probabilities": {
+            "act": 0,
+            "ignore": 0,
+            "keep": 0.07,
+            "learn": 0.93
+          },
+          "winningProbability": 0.93
+        },
+        "keyword": "learn",
+        "majority": "act",
+        "text": "Architecture guide for the new event pipeline."
+      },
+      {
+        "expected": "keep",
+        "id": "i3",
+        "jev": {
+          "choice": "keep",
+          "probabilities": {
+            "act": 0.01,
+            "ignore": 0.03,
+            "keep": 0.96,
+            "learn": 0
+          },
+          "winningProbability": 0.96
+        },
+        "keyword": "keep",
+        "majority": "act",
+        "text": "Your monitor stand receipt."
+      },
+      {
+        "expected": "ignore",
+        "id": "i4",
+        "jev": {
+          "choice": "ignore",
+          "probabilities": {
+            "act": 0.01,
+            "ignore": 0.99,
+            "keep": 0,
+            "learn": 0
+          },
+          "winningProbability": 0.99
+        },
+        "keyword": "ignore",
+        "majority": "act",
+        "text": "You won a prize, click this unknown link."
+      },
+      {
+        "expected": "act",
+        "id": "i5",
+        "jev": {
+          "choice": "act",
+          "probabilities": {
+            "act": 1,
+            "ignore": 0,
+            "keep": 0,
+            "learn": 0
+          },
+          "winningProbability": 1
+        },
+        "keyword": "act",
+        "majority": "act",
+        "text": "Can you send the final deck to Priya?"
+      },
+      {
+        "expected": "ignore",
+        "id": "i6",
+        "jev": {
+          "choice": "ignore",
+          "probabilities": {
+            "act": 0,
+            "ignore": 1,
+            "keep": 0,
+            "learn": 0
+          },
+          "winningProbability": 1
+        },
+        "keyword": "ignore",
+        "majority": "act",
+        "text": "Weekly promotional newsletter."
+      }
+    ],
+    "route": "direct-typesafe",
+    "schema": "jev-challenge-lab-v1",
+    "scorecard": {
+      "jev": {
+        "calls": 1,
+        "correct": 6,
+        "latencyMs": 149,
+        "total": 6
+      },
+      "keyword": {
+        "calls": 0,
+        "correct": 6,
+        "latencyMs": 0,
+        "total": 6
+      },
+      "majority": {
+        "calls": 0,
+        "correct": 2,
+        "latencyMs": 0,
+        "total": 6
+      }
+    },
+    "share": {
+      "path": "/apps/challenge-lab?pack=inbox&run=16fd4555b04e"
+    },
+    "title": "Inbox action",
+    "usage": {
+      "input_tokens": 1078,
+      "output_tokens": 261
+    }
+  },
+  "support": {
+    "cohortSha256": "26f5427951d505f691f651744aef3cca28f7fa95f0c2acace9d7392b47dd63da",
+    "createdAt": "2026-09-21T12:45:56.940Z",
+    "evidence": {
+      "runSha256": "04dafc3efc8e7c382515a6d9141f826cb5fe8f72d7011cc06437b610676eb65a"
+    },
+    "model": "jev-1.13.0",
+    "pack": "support",
+    "policyVersion": "exact-label-match-v1",
+    "pricing": {
+      "inputUsdPerMillion": 0.042,
+      "output": "free",
+      "snapshotAt": "2026-09-21"
+    },
+    "promptVersion": "challenge-v1.0.0",
+    "provider": "typesafe-ai",
+    "results": [
+      {
+        "expected": "p0",
+        "id": "s1",
+        "jev": {
+          "choice": "p1",
+          "probabilities": {
+            "p0": 0.33,
+            "p1": 0.67,
+            "p2": 0,
+            "p3": 0
+          },
+          "winningProbability": 0.67
+        },
+        "keyword": "p0",
+        "majority": "p0",
+        "text": "Checkout charges twice for every retry."
+      },
+      {
+        "expected": "p2",
+        "id": "s2",
+        "jev": {
+          "choice": "p2",
+          "probabilities": {
+            "p0": 0,
+            "p1": 0.01,
+            "p2": 0.5,
+            "p3": 0.49
+          },
+          "winningProbability": 0.5
+        },
+        "keyword": "p2",
+        "majority": "p0",
+        "text": "CSV export is slow but completes."
+      },
+      {
+        "expected": "p3",
+        "id": "s3",
+        "jev": {
+          "choice": "p3",
+          "probabilities": {
+            "p0": 0,
+            "p1": 0,
+            "p2": 0,
+            "p3": 1
+          },
+          "winningProbability": 1
+        },
+        "keyword": "p3",
+        "majority": "p0",
+        "text": "How do I change my avatar?"
+      },
+      {
+        "expected": "p1",
+        "id": "s4",
+        "jev": {
+          "choice": "p0",
+          "probabilities": {
+            "p0": 0.58,
+            "p1": 0.42,
+            "p2": 0,
+            "p3": 0
+          },
+          "winningProbability": 0.58
+        },
+        "keyword": "p1",
+        "majority": "p0",
+        "text": "SSO login is down for all enterprise users."
+      },
+      {
+        "expected": "p0",
+        "id": "s5",
+        "jev": {
+          "choice": "p0",
+          "probabilities": {
+            "p0": 1,
+            "p1": 0,
+            "p2": 0,
+            "p3": 0
+          },
+          "winningProbability": 1
+        },
+        "keyword": "p0",
+        "majority": "p0",
+        "text": "A public bucket contains customer invoices."
+      },
+      {
+        "expected": "p2",
+        "id": "s6",
+        "jev": {
+          "choice": "p3",
+          "probabilities": {
+            "p0": 0,
+            "p1": 0,
+            "p2": 0.27,
+            "p3": 0.73
+          },
+          "winningProbability": 0.73
+        },
+        "keyword": "p2",
+        "majority": "p0",
+        "text": "Dark mode has low contrast in one modal."
+      }
+    ],
+    "route": "direct-typesafe",
+    "schema": "jev-challenge-lab-v1",
+    "scorecard": {
+      "jev": {
+        "calls": 1,
+        "correct": 3,
+        "latencyMs": 373,
+        "total": 6
+      },
+      "keyword": {
+        "calls": 0,
+        "correct": 6,
+        "latencyMs": 0,
+        "total": 6
+      },
+      "majority": {
+        "calls": 0,
+        "correct": 2,
+        "latencyMs": 0,
+        "total": 6
+      }
+    },
+    "share": {
+      "path": "/apps/challenge-lab?pack=support&run=04dafc3efc8e"
+    },
+    "title": "Support priority",
+    "usage": {
+      "input_tokens": 1135,
+      "output_tokens": 291
+    }
+  }
+}
