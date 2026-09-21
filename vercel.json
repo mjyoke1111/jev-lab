@@ -32,6 +32,9 @@
     },
     "api/run-router.ts": {
       "maxDuration": 60
+    },
+    "api/run-parkour.ts": {
+      "maxDuration": 30
     }
   },
   "redirects": [
