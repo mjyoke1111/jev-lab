@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>agentproof - know when your agent breaks before your users do</title>
-<meta name="description" content="A 120-case evaluation kit for AI agents. Deterministic checks, CI gate, cost accounting. Run the free sample with zero API keys.">
+<title>agentproof audit - exactly where your agent breaks, in 48 hours</title>
+<meta name="description" content="A 48-hour evaluation audit for AI agents: 120 test cases against your endpoint, a prioritized failure list, and a CI gate wired into your repo. Founding pilot at $149.">
 <style>
   :root { --bg:#0b0e14; --fg:#e6e9ef; --dim:#9aa4b2; --accent:#4ade80; --card:#131824; }
   * { box-sizing:border-box; margin:0; }
@@ -27,56 +27,68 @@
   .price { font-size:32px; font-weight:700; margin:8px 0 4px; }
   .strike { color:var(--dim); text-decoration:line-through; font-size:20px; font-weight:400; margin-left:8px; }
   .fine { color:var(--dim); font-size:14px; margin-top:6px; }
+  .q { color:var(--fg); font-weight:600; margin-top:14px; }
   footer { color:var(--dim); font-size:13px; margin-top:56px; text-align:center; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Know when your agent breaks <span>before your users do.</span></h1>
-  <p class="sub">agentproof is an evaluation kit for AI agents: 120 ready-made test cases,
-     deterministic checks, a CI gate, and cost accounting. Point it at your agent's
-     endpoint, get a report, gate your deploys on it.</p>
-  <a class="cta" href="#buy">Get the kit - $29</a>
-  <a class="cta2" href="#sample">Free 15-case sample</a>
+  <h1>Exactly where your agent breaks. <span>In 48 hours.</span></h1>
+  <p class="sub">We run a 120-case evaluation against your agent's live endpoint and hand
+     you a prioritized list of its failures - ranked by severity, with repro cases - plus
+     a CI gate wired into your repo so they stay fixed. You ship knowing what changed.</p>
+  <a class="cta" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Audit%20-%20%24149&body=I%20want%20the%20%24149%20Agent%20Eval%20Audit.%20My%20agent%20endpoint%20is%3A%20">Book the audit - $149</a>
+  <a class="cta2" href="sample-audit/report.html">Read a real sample audit</a>
 
   <div class="card">
-    <h2>What's in the kit</h2>
+    <h2>What the audit hands you</h2>
     <ul>
-      <li>120-case evaluation library across 15 categories: tool use, refusals, prompt-injection resistance, extraction, code, long context, multilingual, data analysis, and more</li>
-      <li>The agentproof CLI: deterministic checks plus an optional LLM judge</li>
-      <li>CI gate that fails your build when the pass rate drops (<code>--fail-under</code>)</li>
-      <li>HTML, JSON, JUnit, Markdown, and CSV reports</li>
-      <li>Token cost accounting per case and per suite</li>
-      <li>Dataset import for OpenAI-evals / Braintrust JSONL</li>
-      <li>GitHub Actions template - eval gate running in 5 minutes</li>
+      <li>120 test cases across 15 categories run against YOUR endpoint: tool use, refusals, prompt-injection resistance, extraction, code, long context, multilingual, data analysis, and more</li>
+      <li>A prioritized failure list: what breaks, how often, ranked by how much it will hurt in production</li>
+      <li>A repro case for every failure - replay it yourself in one command</li>
+      <li>The full HTML report, plus JSON/JUnit/CSV for your own tooling</li>
+      <li>A CI gate wired for your repo that fails the build when the pass rate drops</li>
+      <li>Token cost accounting per case, so you know what quality costs</li>
     </ul>
   </div>
 
-  <div class="card" id="sample">
-    <h2>Try the sample first - zero API keys</h2>
-    <p style="color:var(--dim)">The free pack ships 15 cases (one per category) and a mock
-       agent. If the demo doesn't convince you, don't buy the kit.</p>
-    <pre>python examples/demo.py
-# 7/7 smoke cases pass against the mock agent</pre>
+  <div class="card">
+    <h2>Don't take our word for it - read a real audit</h2>
+    <p style="color:var(--dim)">The sample is a genuine 120-case run against a demo agent,
+       unedited: every prompt, every response, every failure. If this report wouldn't
+       change what you ship, don't book.
+       <a style="color:var(--accent)" href="sample-audit/report.html">Open the sample audit</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Fair questions</h2>
+    <p class="q">"Couldn't I just run Promptfoo myself?"</p>
+    <p style="color:var(--dim)">Yes - the runner is the easy part. What you're buying is the
+       120-case library, the judgment to rank what matters, and the CI gate, done for you
+       in 48 hours. If your team has a week to build eval cases, you don't need us.</p>
+    <p class="q">"Our agent is behind auth / not public."</p>
+    <p style="color:var(--dim)">Fine. We run against a staging endpoint with a token you
+       can revoke the moment we deliver. Nothing is stored after the report ships.</p>
+    <p class="q">"What if you find nothing?"</p>
+    <p style="color:var(--dim)">Then you get a clean bill of health with the evidence to
+       show your team and your users - and a gate that keeps it true.</p>
   </div>
 
   <div class="card" id="buy">
-    <h2>Two ways to buy</h2>
-    <p class="price">$29 <span class="strike">$49</span></p>
-    <p style="color:var(--dim)"><b style="color:var(--fg)">The kit.</b> Full 120-case library, the CLI,
-       CI templates, every case we add to this version. One-time, instant download.</p>
-    <p class="price" style="margin-top:20px">$149</p>
-    <p style="color:var(--dim)"><b style="color:var(--fg)">The audit.</b> We run the full library against
-       YOUR agent's endpoint and hand you a prioritized failure list, the HTML report,
-       and a CI gate wired for your repo. 48-hour delivery. <a style="color:var(--accent)"
-       href="sample-audit/report.html">See a sample audit</a>.</p>
-    <a class="cta" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Kit%20-%20launch%20access%20at%20%2429&body=I%20want%20launch%20access%20to%20the%20Agent%20Eval%20Kit%20at%20%2429.%20Email%20me%20the%20moment%20checkout%20opens.">Get launch access - $29</a>
-    <a class="cta2" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Audit%20-%20%24149&body=I%20want%20the%20%24149%20Agent%20Eval%20Audit.%20My%20agent%20endpoint%20is%3A%20">Book the audit - $149</a>
-    <p class="fine">Checkout opens when the storefront goes live this week - leave your
-       email at the price above and you're first in, at the locked launch price.</p>
+    <h2>Founding pilot: 5 slots at $149</h2>
+    <p class="price">$149 <span class="strike">$299</span></p>
+    <p style="color:var(--dim)">This price exists because we're building the track record.
+       Five teams, 48-hour delivery each, then the price moves toward $299-499.
+       Email to claim a slot - no card needed until we confirm your endpoint works.</p>
+    <a class="cta" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Audit%20-%20%24149&body=I%20want%20the%20%24149%20Agent%20Eval%20Audit.%20My%20agent%20endpoint%20is%3A%20">Book the audit - $149</a>
+    <p class="fine" style="margin-top:16px">Prefer to run it yourself? The self-serve kit -
+       the full 120-case library, CLI, and CI templates - is
+       <b style="color:var(--fg)">$29</b> at launch (<span class="strike">$49</span>).
+       <a style="color:var(--accent)" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Kit%20-%20launch%20access%20at%20%2429&body=I%20want%20launch%20access%20to%20the%20Agent%20Eval%20Kit%20at%20%2429.%20Email%20me%20the%20moment%20checkout%20opens.">Get launch access</a>
+       and we'll email you the moment checkout opens.</p>
   </div>
 
-  <footer>Built and tested against real agent endpoints. No subscription, no account, no tracking.</footer>
+  <footer>One engineer, one library, real endpoints. No subscription, no account, no tracking.</footer>
 </div>
 </body>
 </html>
