@@ -1,0 +1,76 @@
+{
+ "generated_at": "2026-09-22T01:06+10:00",
+ "experiments": [
+  {
+   "name": "Agent Smoke Test (free 5-case agent failure check)",
+   "lane": "studio-product-1",
+   "status": "building",
+   "started": "2026-09-22",
+   "last_state_change": "2026-09-22T01:03+10:00 build spec handed to builder"
+  },
+  {
+   "name": "Agent Eval Kit (120-case library + CLI + CI gate)",
+   "lane": "kit-29",
+   "status": "ready-payment-pending",
+   "started": "2026-09-21",
+   "last_state_change": "2026-09-21T23:49+10:00 shop listing drafted, awaiting payment setup"
+  },
+  {
+   "name": "Agent Eval Audit (founding pilot)",
+   "lane": "audit-149",
+   "status": "ready-payment-pending",
+   "started": "2026-09-21",
+   "last_state_change": "2026-09-21T23:00+10:00 offer page live, capped slots"
+  },
+  {
+   "name": "Bounty lane",
+   "lane": "bounties",
+   "status": "killed",
+   "started": "2026-09-21",
+   "last_state_change": "2026-09-22T00:37+10:00 killed - no funded claimable inventory; feeds monitored for reopen"
+  }
+ ],
+ "artifacts": [
+  {
+   "name": "Live offer page",
+   "url": "https://jevlab-mjyoke1111.vercel.app/offer",
+   "shipped_at": "2026-09-21"
+  },
+  {
+   "name": "Sample audit report (120-case)",
+   "url": "https://jevlab-mjyoke1111.vercel.app/offer/sample-audit/report.html",
+   "shipped_at": "2026-09-21"
+  },
+  {
+   "name": "Challenge Lab (static replay)",
+   "url": "https://jevlab-mjyoke1111.vercel.app/",
+   "shipped_at": "2026-09-21"
+  }
+ ],
+ "decisions": [
+  "2026-09-22 00:31 - kit/audit frozen at payment gate; studio pipeline pursues non-blocked routes",
+  "2026-09-22 01:03 - studio product #1 picked: free Agent Smoke Test as the kit's live demo funnel",
+  "2026-09-22 00:58 - antislop design gates adopted for all site builds"
+ ],
+ "acquisition_attempts": [
+  {
+   "action": "X post #1 (evidence billboard)",
+   "surface": "X",
+   "result": "posted, https://x.com/MjYoke1111/status/2102005906317902086"
+  }
+ ],
+ "blockers": [
+  "payment setup pending owner"
+ ],
+ "kills": [
+  {
+   "lane": "bounty boards",
+   "evidence": "no verifiable funded, claimable tasks on checked boards (2026-09-22); monitoring for reopen"
+  }
+ ],
+ "revenue_evidence": {
+  "prospects": 0,
+  "buyer_responses": 0,
+  "collected": "$0"
+ }
+}
