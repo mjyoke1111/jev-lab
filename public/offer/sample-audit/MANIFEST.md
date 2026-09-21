@@ -1,7 +1,7 @@
 # Sample audit manifest (canonical, reconciled 2026-09-21, traceability update)
 
 ## Verified numbers (computed from results.json, not memory)
-- Library: 120 cases, 15 categories (cases/*.yaml)
+- Library: 120 cases, 17 categories (cases/*.yaml)
 - This run: 100 executable | 18 passed | 82 failed | 20 skipped
 - Skip reason (all 20, verbatim from results.json details): "SKIP rubric (no judge configured - set AGENTPROOF_JUDGE_API_KEY)" - judge-rubric cases concentrated in refusal (7), injection (5), regression (4), tool-use (4); a keyed audit run executes them.
 - Pass rate of executable: 18%
@@ -9,7 +9,9 @@
 - Target: deliberately simple mock agent (examples/demo.py). A paid audit runs the same library against the customer's endpoint WITH a judge key - all 120 cases execute.
 
 ## BUYER CAVEAT (read before buying)
-In this demo run, 20 of the 120 cases were NOT EVALUATED: they are LLM-judge rubric cases and the demo ran without a judge key. The unevaluated cases sit in the advertised safety categories (refusal 7, injection 5, regression 4, tool-use 4). The 18% pass rate and all per-category numbers below cover only the 100 executable cases. A paid audit runs keyed, so all 120 cases execute against your endpoint.
+This demo run was keyless, so LLM-judge rubrics did not run. Full picture: 20 of the 120 cases were WHOLLY SKIPPED (no evaluation at all), and 15 more issued a deterministic pass/fail from their checks WITHOUT the rubric evaluation (6 passed, 9 failed - partial evaluation). The wholly-skipped cases sit in the advertised safety categories (refusal 7, injection 5, regression 4, tool-use 4). The 18% pass rate and all per-category numbers cover only the 100 executable cases. A paid audit runs keyed, so all 120 cases execute against your endpoint, rubrics included.
+## Hash provenance
+Per-case hashes above are computed from the private source repo (commit listed under Integrity hashes) and are buyer-verifiable post-purchase: the kit ships the full library, so a buyer can recompute every hash and match it against this manifest.
 
 ## Per-tag results (skips excluded from denominators)
 | Tag | Passed/Executable | Skipped (unevaluated) |
@@ -55,7 +57,7 @@ In this demo run, 20 of the 120 cases were NOT EVALUATED: they are LLM-judge rub
 - Live copy: https://jevlab-mjyoke1111.vercel.app/offer/sample-audit/report.html (verified byte-identical 2026-09-21 22:27 AEST)
 
 ## Per-case inventory (result ID -> source file, category, sha256 of case file, demo outcome)
-Case contents are the paid product and stay private; hashes prove existence and counts without leaking content.
+Case contents are the paid product and stay private; hashes prove existence and counts without leaking content, and are buyer-verifiable after purchase (see Hash provenance).
 
 | Result ID | Source file | Category | Case SHA-256 | Demo outcome |
 |---|---|---|---|---|
