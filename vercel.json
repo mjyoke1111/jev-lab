@@ -20,6 +20,9 @@
     },
     "api/run-order-bias.ts": {
       "maxDuration": 60
+    },
+    "api/run-spreadsheet.ts": {
+      "maxDuration": 60
     }
   },
   "redirects": [
