@@ -38,6 +38,12 @@
     },
     "api/run-marbles.ts": {
       "maxDuration": 30
+    },
+    "api/run-autonomy-gate.ts": {
+      "maxDuration": 30
+    },
+    "api/run-decision-arena.ts": {
+      "maxDuration": 30
     }
   },
   "redirects": [
