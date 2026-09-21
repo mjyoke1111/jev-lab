@@ -35,6 +35,9 @@
     },
     "api/run-parkour.ts": {
       "maxDuration": 30
+    },
+    "api/run-marbles.ts": {
+      "maxDuration": 30
     }
   },
   "redirects": [
