@@ -1,5 +1,6 @@
 import {ArrowRight,ArrowUpRight,FlaskConical,Play,ShieldCheck,Shuffle,FileCheck2,Languages,Boxes,Video} from 'lucide-react';
 const projects=[
+ {n:'12',status:'BUILDING · SECURITY PRODUCT',title:'Jev Autonomy Gate',desc:'Drop in an agent task. Jev maps risk and code chooses allow, constrain, or human review.',href:'/apps/autonomy-gate',icon:ShieldCheck,meta:'auditable trace · policy envelope',tone:'orange'},
  {n:'10',status:'LIVE · SEMANTIC PHYSICS',title:'Semantic Marble Machine',desc:'Drop a message batch. Jev moves each marble by meaning and sends uncertainty to review.',href:'/examples/marbles',icon:Shuffle,meta:'one packed call · animated evidence',tone:'blue'},
  {n:'09',status:'LIVE · CLOSED LOOP',title:'Jev Parkour Director',desc:'Watch Jev direct a changing runner world. Code keeps every proposed segment playable.',href:'/examples/parkour',icon:Play,meta:'real-time canvas · replayable calls',tone:'violet'},
  {n:'08',status:'LIVE · ROUTE IT',title:'Jev Sifting Router',desc:'Paste a request. Jev judges its shape, code chooses fast, frontier, or review, and the selected model answers.',href:'/experiments/router',icon:Boxes,meta:'real calls · replayable costs',tone:'green'},
