@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>agentproof - know when your agent breaks before your users do</title>
+<meta name="description" content="A 120-case evaluation kit for AI agents. Deterministic checks, CI gate, cost accounting. Run the free sample with zero API keys.">
+<style>
+  :root { --bg:#0b0e14; --fg:#e6e9ef; --dim:#9aa4b2; --accent:#4ade80; --card:#131824; }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:64px 24px; }
+  h1 { font-size:40px; line-height:1.15; letter-spacing:-0.02em; }
+  h1 span { color:var(--accent); }
+  .sub { color:var(--dim); font-size:19px; margin:20px 0 32px; }
+  .cta { display:inline-block; background:var(--accent); color:#0b0e14; font-weight:600;
+         padding:14px 28px; border-radius:10px; text-decoration:none; }
+  .cta2 { display:inline-block; color:var(--fg); border:1px solid #2a3342;
+          padding:14px 28px; border-radius:10px; text-decoration:none; margin-left:12px; }
+  .card { background:var(--card); border:1px solid #1f2635; border-radius:14px; padding:24px; margin-top:40px; }
+  .card h2 { font-size:20px; margin-bottom:12px; }
+  ul { padding-left:20px; color:var(--dim); }
+  li { margin:6px 0; }
+  code { background:#1a2130; padding:2px 7px; border-radius:6px; font-size:14px; }
+  pre { background:#0f141d; border:1px solid #1f2635; border-radius:10px; padding:16px;
+        overflow-x:auto; font-size:14px; margin-top:12px; }
+  .price { font-size:32px; font-weight:700; margin:8px 0 4px; }
+  .strike { color:var(--dim); text-decoration:line-through; font-size:20px; font-weight:400; margin-left:8px; }
+  .fine { color:var(--dim); font-size:14px; margin-top:6px; }
+  footer { color:var(--dim); font-size:13px; margin-top:56px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Know when your agent breaks <span>before your users do.</span></h1>
+  <p class="sub">agentproof is an evaluation kit for AI agents: 120 ready-made test cases,
+     deterministic checks, a CI gate, and cost accounting. Point it at your agent's
+     endpoint, get a report, gate your deploys on it.</p>
+  <a class="cta" href="#buy">Get the kit - $29</a>
+  <a class="cta2" href="#sample">Free 15-case sample</a>
+
+  <div class="card">
+    <h2>What's in the kit</h2>
+    <ul>
+      <li>120-case evaluation library across 15 categories: tool use, refusals, prompt-injection resistance, extraction, code, long context, multilingual, data analysis, and more</li>
+      <li>The agentproof CLI: deterministic checks plus an optional LLM judge</li>
+      <li>CI gate that fails your build when the pass rate drops (<code>--fail-under</code>)</li>
+      <li>HTML, JSON, JUnit, Markdown, and CSV reports</li>
+      <li>Token cost accounting per case and per suite</li>
+      <li>Dataset import for OpenAI-evals / Braintrust JSONL</li>
+      <li>GitHub Actions template - eval gate running in 5 minutes</li>
+    </ul>
+  </div>
+
+  <div class="card" id="sample">
+    <h2>Try the sample first - zero API keys</h2>
+    <p style="color:var(--dim)">The free pack ships 15 cases (one per category) and a mock
+       agent. If the demo doesn't convince you, don't buy the kit.</p>
+    <pre>python examples/demo.py
+# 7/7 smoke cases pass against the mock agent</pre>
+  </div>
+
+  <div class="card" id="buy">
+    <h2>Two ways to buy</h2>
+    <p class="price">$29 <span class="strike">$49</span></p>
+    <p style="color:var(--dim)"><b style="color:var(--fg)">The kit.</b> Full 120-case library, the CLI,
+       CI templates, every case we add to this version. One-time, instant download.</p>
+    <p class="price" style="margin-top:20px">$149</p>
+    <p style="color:var(--dim)"><b style="color:var(--fg)">The audit.</b> We run the full library against
+       YOUR agent's endpoint and hand you a prioritized failure list, the HTML report,
+       and a CI gate wired for your repo. 48-hour delivery. <a style="color:var(--accent)"
+       href="sample-audit/README.md">See a sample audit</a>.</p>
+    <a class="cta" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Kit%20-%20launch%20access%20at%20%2429&body=I%20want%20launch%20access%20to%20the%20Agent%20Eval%20Kit%20at%20%2429.%20Email%20me%20the%20moment%20checkout%20opens.">Get launch access - $29</a>
+    <a class="cta2" href="mailto:mjyoke1111@gmail.com?subject=Agent%20Eval%20Audit%20-%20%24149&body=I%20want%20the%20%24149%20Agent%20Eval%20Audit.%20My%20agent%20endpoint%20is%3A%20">Book the audit - $149</a>
+    <p class="fine">Checkout opens when the storefront goes live this week - leave your
+       email at the price above and you're first in, at the locked launch price.</p>
+  </div>
+
+  <footer>Built and tested against real agent endpoints. No subscription, no account, no tracking.</footer>
+</div>
+</body>
+</html>
