@@ -23,6 +23,9 @@
     },
     "api/run-spreadsheet.ts": {
       "maxDuration": 60
+    },
+    "api/run-trace-qa.ts": {
+      "maxDuration": 60
     }
   },
   "redirects": [
