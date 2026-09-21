@@ -21,5 +21,27 @@
     "api/run-order-bias.ts": {
       "maxDuration": 60
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/arena",
+      "destination": "/projects/agent-safety-arena",
+      "permanent": true
+    },
+    {
+      "source": "/rerank",
+      "destination": "/projects/semantic-rerank",
+      "permanent": true
+    },
+    {
+      "source": "/gate",
+      "destination": "/projects/action-gate",
+      "permanent": true
+    },
+    {
+      "source": "/experiments/content-firewall",
+      "destination": "/projects/content-firewall",
+      "permanent": true
+    }
+  ]
 }
