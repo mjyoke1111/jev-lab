@@ -8,44 +8,6 @@
       "destination": "/index.html"
     }
   ],
-  "functions": {
-    "api/run-evaluation.ts": {
-      "maxDuration": 60
-    },
-    "api/run-content-firewall.ts": {
-      "maxDuration": 60
-    },
-    "api/run-rerank.ts": {
-      "maxDuration": 30
-    },
-    "api/run-order-bias.ts": {
-      "maxDuration": 60
-    },
-    "api/run-spreadsheet.ts": {
-      "maxDuration": 60
-    },
-    "api/run-trace-qa.ts": {
-      "maxDuration": 60
-    },
-    "api/run-inbox.ts": {
-      "maxDuration": 60
-    },
-    "api/run-router.ts": {
-      "maxDuration": 60
-    },
-    "api/run-parkour.ts": {
-      "maxDuration": 30
-    },
-    "api/run-marbles.ts": {
-      "maxDuration": 30
-    },
-    "api/run-autonomy-gate.ts": {
-      "maxDuration": 30
-    },
-    "api/run-decision-arena.ts": {
-      "maxDuration": 30
-    }
-  },
   "redirects": [
     {
       "source": "/arena",
