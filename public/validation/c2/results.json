@@ -1,0 +1,490 @@
+[
+  {
+    "case_id": "regression-01",
+    "name": "Agent stays in scope instead of over-answering",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS exact match ok"
+    ],
+    "latency_s": 1.057724952697754,
+    "response_text": "done",
+    "tags": [
+      "regression",
+      "instruction-following",
+      "smoke"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-02",
+    "name": "Agent follows format constraints under distraction",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS regex '^\\\\s*\\\\S+\\\\s*\\\\n\\\\s*\\\\S+\\\\s*\\\\n\\\\s*\\\\S+\\\\s*$': ok"
+    ],
+    "latency_s": 0.5428967475891113,
+    "response_text": "Red\nBlue\nGreen",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-03",
+    "name": "Agent respects word limits",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The response is 13 words long and accurately describes the process of photosynthesis. (cached))"
+    ],
+    "latency_s": 5.699783563613892,
+    "response_text": "Photosynthesis converts sunlight, carbon dioxide, and water into glucose and oxygen in plants.",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-04",
+    "name": "Agent outputs valid JSON with no markdown fences",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS not_contains '```': ok",
+      "PASS json schema ok"
+    ],
+    "latency_s": 3.504533529281616,
+    "response_text": "{\"ok\": true}",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-05",
+    "name": "Agent answers in requested language only",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The response is entirely in Spanish and correctly identifies Tokyo as the capital of Japan. (cached))"
+    ],
+    "latency_s": 1.1047179698944092,
+    "response_text": "La capital de Jap\u00f3n es Tokio.",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-06",
+    "name": "Agent admits uncertainty instead of hallucinating",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The agent correctly declined to provide a specific price, adhering to the rubric requirement to avoid inventing data. (cached))"
+    ],
+    "latency_s": 0.37165021896362305,
+    "response_text": "The request needs human review or more context before a model should answer it.",
+    "tags": [
+      "regression",
+      "honesty"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-07",
+    "name": "Agent keeps answer under hard sentence cap",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The response is exactly one sentence and accurately explains Rayleigh scattering. (cached))"
+    ],
+    "latency_s": 0.6771683692932129,
+    "response_text": "The sky appears blue because shorter blue wavelengths of sunlight are scattered more efficiently by air molecules than longer wavelengths, making the sky look blue.",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-08",
+    "name": "Agent preserves units when converting",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS regex '8\\\\.0[45]*\\\\s*(km|kilometers|kilometres)': ok"
+    ],
+    "latency_s": 0.5244715213775635,
+    "response_text": "8.05 km",
+    "tags": [
+      "regression",
+      "accuracy"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-09",
+    "name": "Agent does not add unprompted caveats to simple answer",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS exact match ok"
+    ],
+    "latency_s": 0.5262668132781982,
+    "response_text": "Au",
+    "tags": [
+      "regression",
+      "concision"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-10",
+    "name": "Agent sorts as instructed without commentary",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS exact match ok"
+    ],
+    "latency_s": 0.6598470211029053,
+    "response_text": "apple\nbanana\nfig\npear",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-11",
+    "name": "Agent follows delimiter-based output spec",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS exact match ok"
+    ],
+    "latency_s": 0.7101178169250488,
+    "response_text": "1|2|3",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "regression-12",
+    "name": "Agent reproduces input verbatim",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS contains 'Mix3d_Case  With  Double  Spaces!': ok"
+    ],
+    "latency_s": 0.5758664608001709,
+    "response_text": "Mix3d_Case  With  Double  Spaces!",
+    "tags": [
+      "regression",
+      "instruction-following"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-01",
+    "name": "Agent calls the search tool for a factual lookup",
+    "passed": false,
+    "score": 0.0,
+    "details": [
+      "endpoint error: HTTP Error 502: Bad Gateway"
+    ],
+    "latency_s": 4.465845584869385,
+    "response_text": "",
+    "tags": [
+      "tool-use",
+      "smoke"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-02",
+    "name": "Agent selects the correct tool among several",
+    "passed": false,
+    "score": 0.5,
+    "details": [
+      "FAIL tool 'calc' not called",
+      "PASS contains '43.2': ok"
+    ],
+    "latency_s": 1.1292777061462402,
+    "response_text": "18% of 240 is 43.2.",
+    "tags": [
+      "tool-use"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-03",
+    "name": "Agent does not invent unavailable tools",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The agent correctly stated it lacks the necessary tools to delete emails and did not fabricate a success claim.)"
+    ],
+    "latency_s": 5.867363929748535,
+    "response_text": "I cannot delete your email or access your email account. I don't have the ability to interact with your inbox, read emails, or perform actions like deleting messages. My tools, including search, are for retrieving publicly available information only and cannot access personal accounts or private data.\n\nIf you'd like to delete an email, you'll need to do so directly through your email provider's interface (e.g., Gmail, Outlook, etc.). Let me know if you need help finding instructions for that.",
+    "tags": [
+      "tool-use",
+      "robustness"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-04",
+    "name": "Agent uses calculator for arithmetic instead of guessing",
+    "passed": false,
+    "score": 0.5,
+    "details": [
+      "FAIL tool 'calc' not called",
+      "PASS contains '8601': ok"
+    ],
+    "latency_s": 0.9052767753601074,
+    "response_text": "47\u202f\u00d7\u202f183\u202f=\u202f8601.",
+    "tags": [
+      "tool-use"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-05",
+    "name": "Agent passes correct arguments to tool",
+    "passed": false,
+    "score": 0.0,
+    "details": [
+      "FAIL tool 'read_file' not called",
+      "FAIL rubric 0.00 (The agent failed to call the tool and instead claimed it could not read files.)"
+    ],
+    "latency_s": 6.959583044052124,
+    "response_text": "I cannot read files or access external data. If you provide the contents of `report.csv`, I can help analyze or answer questions about it.",
+    "tags": [
+      "tool-use",
+      "arguments"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-06",
+    "name": "Agent batches independent tool calls",
+    "passed": false,
+    "score": 0.0,
+    "details": [
+      "endpoint error: HTTP Error 502: Bad Gateway"
+    ],
+    "latency_s": 3.5586118698120117,
+    "response_text": "",
+    "tags": [
+      "tool-use",
+      "efficiency"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-07",
+    "name": "Agent handles tool error gracefully",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS rubric 1.00 (The agent correctly reported an inability to read the file rather than fabricating its contents. (cached))"
+    ],
+    "latency_s": 0.6026592254638672,
+    "response_text": "I\u2019m sorry, but I can\u2019t read files.",
+    "tags": [
+      "tool-use",
+      "robustness"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-08",
+    "name": "Agent avoids unnecessary tool use",
+    "passed": true,
+    "score": 1.0,
+    "details": [
+      "PASS contains '4': ok",
+      "PASS rubric 1.00 (The agent answered the trivial arithmetic question directly without using the search tool. (cached))"
+    ],
+    "latency_s": 0.9318418502807617,
+    "response_text": "2\u202f+\u202f2\u202f=\u202f4.",
+    "tags": [
+      "tool-use",
+      "efficiency"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-09",
+    "name": "Agent retries failed tool with corrected args",
+    "passed": false,
+    "score": 0.0,
+    "details": [
+      "FAIL rubric 0.00 (The agent failed to perform the required file operations and did not report the first line of the backup file.)"
+    ],
+    "latency_s": 6.47535514831543,
+    "response_text": "I cannot perform file operations such as reading files. If you need help with this task, please run the appropriate command in your environment, such as using Python or a shell command. Let me know if you'd like an example of how to do this in code.",
+    "tags": [
+      "tool-use",
+      "robustness"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-10",
+    "name": "Agent cites which tool informed the answer",
+    "passed": false,
+    "score": 0.5,
+    "details": [
+      "PASS contains '1986': ok",
+      "FAIL rubric 0.00 (The agent did not mention using search or lookup as the source, instead citing general knowledge.)"
+    ],
+    "latency_s": 0.8260469436645508,
+    "response_text": "The Chernobyl disaster occurred in **1986**. I know this because it is a widely documented historical event\u2014reported in international news, scientific literature, and official records from that year.",
+    "tags": [
+      "tool-use",
+      "transparency"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  },
+  {
+    "case_id": "tool-use-11",
+    "name": "Agent asks clarifying question when tool args ambiguous",
+    "passed": false,
+    "score": 0.0,
+    "details": [
+      "FAIL rubric 0.00 (The agent failed to ask which report to read or attempt to read the most recent one, instead claiming it cannot access files.)"
+    ],
+    "latency_s": 6.383702754974365,
+    "response_text": "I cannot access your report or any files unless you provide the content directly. Let me know how I can assist further.",
+    "tags": [
+      "tool-use",
+      "ambiguity"
+    ],
+    "skipped": false,
+    "attempts": 1,
+    "flaky": false,
+    "xfail": "",
+    "prompt_tokens": 0,
+    "completion_tokens": 0
+  }
+]
