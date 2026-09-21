@@ -1,5 +1,6 @@
 import {ArrowRight,ArrowUpRight,FlaskConical,Play,ShieldCheck,Shuffle,FileCheck2,Languages,Boxes,Video} from 'lucide-react';
 const projects=[
+ {n:'13',status:'BUILDING · SHAREABLE SCORECARD',title:'Jev Challenge Lab',desc:'Run frozen decision tasks against Jev and baselines. Inspect every miss and share the receipt.',href:'/apps/challenge-lab',icon:FlaskConical,meta:'live score · reproducible packs',tone:'orange'},
  {n:'11',status:'BUILDING · LIVE CONTROL LOOP',title:'Jev Decision Arena',desc:'Change the policy. Watch a Jev jury make repeated incident decisions under changing state.',href:'/apps/decision-arena',icon:Play,meta:'stateful replay · confidence gates',tone:'orange'},
  {n:'12',status:'BUILDING · SECURITY PRODUCT',title:'Jev Autonomy Gate',desc:'Drop in an agent task. Jev maps risk and code chooses allow, constrain, or human review.',href:'/apps/autonomy-gate',icon:ShieldCheck,meta:'auditable trace · policy envelope',tone:'orange'},
  {n:'10',status:'LIVE · SEMANTIC PHYSICS',title:'Semantic Marble Machine',desc:'Drop a message batch. Jev moves each marble by meaning and sends uncertainty to review.',href:'/examples/marbles',icon:Shuffle,meta:'one packed call · animated evidence',tone:'blue'},

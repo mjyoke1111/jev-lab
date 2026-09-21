@@ -9,12 +9,6 @@
     }
   ],
   "functions": {
-    "api/run-evaluation.ts": {
-      "maxDuration": 60
-    },
-    "api/run-content-firewall.ts": {
-      "maxDuration": 60
-    },
     "api/run-rerank.ts": {
       "maxDuration": 30
     },
@@ -43,6 +37,9 @@
       "maxDuration": 30
     },
     "api/run-decision-arena.ts": {
+      "maxDuration": 30
+    },
+    "api/run-challenge-lab.ts": {
       "maxDuration": 30
     }
   },
