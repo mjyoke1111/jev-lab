@@ -1,76 +1,87 @@
 {
- "generated_at": "2026-09-22T01:06+10:00",
+ "as_of": "2026-09-22T01:09+10:00",
+ "settled_revenue": "$0",
  "experiments": [
-  {
-   "name": "Agent Smoke Test (free 5-case agent failure check)",
-   "lane": "studio-product-1",
-   "status": "building",
-   "started": "2026-09-22",
-   "last_state_change": "2026-09-22T01:03+10:00 build spec handed to builder"
-  },
   {
    "name": "Agent Eval Kit (120-case library + CLI + CI gate)",
    "lane": "kit-29",
+   "priority": 2,
    "status": "ready-payment-pending",
+   "blocked": true,
+   "blocker_category": "payment_setup",
+   "next_action": "publish listing once payment setup clears",
+   "decision_due": "2026-09-22",
    "started": "2026-09-21",
-   "last_state_change": "2026-09-21T23:49+10:00 shop listing drafted, awaiting payment setup"
+   "last_state_change": "2026-09-21T23:49+10:00 listing drafted",
+   "last_evidence": {
+    "kind": "shipped_artifact",
+    "url": "https://jevlab-mjyoke1111.vercel.app/offer/sample-audit/report.html"
+   }
   },
   {
    "name": "Agent Eval Audit (founding pilot)",
    "lane": "audit-149",
+   "priority": 3,
    "status": "ready-payment-pending",
+   "blocked": true,
+   "blocker_category": "payment_setup",
+   "next_action": "open slots once payment setup clears",
+   "decision_due": "2026-09-22",
    "started": "2026-09-21",
-   "last_state_change": "2026-09-21T23:00+10:00 offer page live, capped slots"
+   "last_state_change": "2026-09-21T23:00+10:00 offer page live",
+   "last_evidence": {
+    "kind": "shipped_artifact",
+    "url": "https://jevlab-mjyoke1111.vercel.app/offer"
+   }
+  },
+  {
+   "name": "Agent Smoke Test (free 5-case agent failure check)",
+   "lane": "studio-product-1",
+   "priority": 1,
+   "status": "building",
+   "blocked": false,
+   "blocker_category": null,
+   "next_action": "builder ships v1 page; acquisition post on deploy",
+   "decision_due": "2026-09-22",
+   "started": "2026-09-22",
+   "last_state_change": "2026-09-22T01:03+10:00 build spec handed to builder",
+   "last_evidence": null
   },
   {
    "name": "Bounty lane",
    "lane": "bounties",
+   "priority": 4,
    "status": "killed",
+   "blocked": false,
+   "blocker_category": null,
+   "next_action": "feeds monitored each cycle; reopen only on verifiable funded claimable inventory",
+   "decision_due": null,
    "started": "2026-09-21",
-   "last_state_change": "2026-09-22T00:37+10:00 killed - no funded claimable inventory; feeds monitored for reopen"
+   "last_state_change": "2026-09-22T00:37+10:00 killed",
+   "last_evidence": {
+    "kind": "measured_result",
+    "url": "https://api.agentbounties.app/v1/bounties/feed"
+   }
   }
  ],
- "artifacts": [
+ "timeline": [
   {
-   "name": "Live offer page",
-   "url": "https://jevlab-mjyoke1111.vercel.app/offer",
-   "shipped_at": "2026-09-21"
+   "ts": "2026-09-22T01:03+10:00",
+   "kind": "decision",
+   "text": "studio product #1 picked: free Agent Smoke Test as the kit's live demo funnel",
+   "evidence_url": null
   },
   {
-   "name": "Sample audit report (120-case)",
-   "url": "https://jevlab-mjyoke1111.vercel.app/offer/sample-audit/report.html",
-   "shipped_at": "2026-09-21"
+   "ts": "2026-09-21T22:04+10:00",
+   "kind": "acquisition_attempt",
+   "text": "X evidence-billboard post #1",
+   "evidence_url": "https://x.com/MjYoke1111/status/2102005906317902086"
   },
   {
-   "name": "Challenge Lab (static replay)",
-   "url": "https://jevlab-mjyoke1111.vercel.app/",
-   "shipped_at": "2026-09-21"
+   "ts": "2026-09-21T23:00+10:00",
+   "kind": "shipped_artifact",
+   "text": "offer page live",
+   "evidence_url": "https://jevlab-mjyoke1111.vercel.app/offer"
   }
- ],
- "decisions": [
-  "2026-09-22 00:31 - kit/audit frozen at payment gate; studio pipeline pursues non-blocked routes",
-  "2026-09-22 01:03 - studio product #1 picked: free Agent Smoke Test as the kit's live demo funnel",
-  "2026-09-22 00:58 - antislop design gates adopted for all site builds"
- ],
- "acquisition_attempts": [
-  {
-   "action": "X post #1 (evidence billboard)",
-   "surface": "X",
-   "result": "posted, https://x.com/MjYoke1111/status/2102005906317902086"
-  }
- ],
- "blockers": [
-  "payment setup pending owner"
- ],
- "kills": [
-  {
-   "lane": "bounty boards",
-   "evidence": "no verifiable funded, claimable tasks on checked boards (2026-09-22); monitoring for reopen"
-  }
- ],
- "revenue_evidence": {
-  "prospects": 0,
-  "buyer_responses": 0,
-  "collected": "$0"
- }
+ ]
 }
