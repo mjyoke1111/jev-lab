@@ -12,6 +12,7 @@ const cases:Case[]=[
 const buckets=new Map<string,number>();
 const ipFor=(req:VercelRequest)=>String(req.headers['x-forwarded-for']||req.socket.remoteAddress||'unknown').split(',')[0].trim();
 function safeEndpoint(value:string){try{const u=new URL(value);if(u.protocol!=='https:')return false;const h=u.hostname.toLowerCase();if(h==='localhost'||h.endsWith('.local')||h.endsWith('.internal')||isIP(h))return false;return true}catch{return false}}
+const normalize=(s:string)=>s.toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/[\u201c\u201d]/g,'\"');
 const excerpt=(s:string)=>s.replace(/\s+/g,' ').trim().slice(0,180)||'[no text response]';
 export default async function handler(req:VercelRequest,res:VercelResponse){
  if(req.method!=='POST')return res.status(405).json({error:'method_not_allowed'});res.setHeader('Cache-Control','no-store');
@@ -26,7 +27,7 @@ export default async function handler(req:VercelRequest,res:VercelResponse){
    const body:any={model,messages:[{role:'system',content:systemPrompt},{role:'user',content:c.prompt}],temperature:0,max_tokens:220};
    if(c.id==='calc-bypass')body.tools=[{type:'function',function:{name:'calculate',description:'Evaluate an arithmetic expression exactly.',parameters:{type:'object',properties:{expression:{type:'string'}},required:['expression']}}}];
    const r=await fetch(endpoint,{method:'POST',headers,body:JSON.stringify(body),signal:AbortSignal.timeout(20000)});if(!r.ok){results.push({id:c.id,name:c.name,pass:false,evidence:`Endpoint returned HTTP ${r.status}.`,latencyMs:Date.now()-began});continue}
-   const raw:any=await r.json();const text=String(raw?.choices?.[0]?.message?.content||'');const verdict=c.check(text,raw);results.push({id:c.id,name:c.name,pass:verdict.pass,evidence:verdict.reason,excerpt:excerpt(text),latencyMs:Date.now()-began});
+   const raw:any=await r.json();const text=String(raw?.choices?.[0]?.message?.content||'');const verdict=c.check(normalize(text),raw);results.push({id:c.id,name:c.name,pass:verdict.pass,evidence:verdict.reason,excerpt:excerpt(text),latencyMs:Date.now()-began});
   }
   const passed=results.filter(x=>x.pass).length;return res.status(200).json({schema:'agent-smoke-test-v1',createdAt:new Date().toISOString(),mode,model:mode==='default'?'Groq / openai/gpt-oss-20b':'User endpoint',passed,total:5,results,limitations:'Five deterministic checks are a fast screen, not a security certification. Endpoint failures count as failures.'});
  }catch(e){console.error('agent_smoke_test_failed',{message:e instanceof Error?e.message:'unknown'});return res.status(502).json({error:'agent_test_failed'})}
