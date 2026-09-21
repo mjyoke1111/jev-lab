@@ -11,7 +11,8 @@
     "harness:preflight": "tsx harness/src/preflight.ts",
     "gate:calibrate": "tsx harness/src/gate-calibration.ts",
     "consistency:score": "tsx harness/consistency/evaluate.ts",
-    "consistency:jev": "tsx harness/consistency/run-jev.ts"
+    "consistency:jev": "tsx harness/consistency/run-jev.ts",
+    "design:gate": "node scripts/check-design-gate.mjs"
   },
   "dependencies": {
     "@playwright/test": "^1.48.0",
