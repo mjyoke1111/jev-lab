@@ -1,0 +1,1031 @@
+{
+ "cohort": {
+  "cohort": "harbor-memory-v1",
+  "cohortSha256": "e5b843b0a6983db57d90264a8a71a32b8b2b2fe56a179b694ce99b612f7daa86",
+  "memory": [
+   {
+    "id": "m01",
+    "date": "2026-08-03",
+    "source": "standup notes",
+    "text": "Harbor app launch is planned for September 15, owned by Priya on the mobile team.",
+    "entities": [
+     "Harbor",
+     "Priya",
+     "mobile team"
+    ],
+    "links": {
+     "semantic": [
+      "m06",
+      "m10"
+     ],
+     "temporal": [
+      "m02"
+     ],
+     "causal": [],
+     "entity": [
+      "m04",
+      "m08"
+     ]
+    }
+   },
+   {
+    "id": "m02",
+    "date": "2026-08-11",
+    "source": "security review",
+    "text": "Security review found that Harbor stores session tokens in plain local storage. Marked as a launch blocker.",
+    "entities": [
+     "Harbor",
+     "security review",
+     "session tokens"
+    ],
+    "links": {
+     "semantic": [
+      "m07"
+     ],
+     "temporal": [
+      "m01",
+      "m03"
+     ],
+     "causal": [
+      "m03",
+      "m05"
+     ],
+     "entity": [
+      "m07"
+     ]
+    }
+   },
+   {
+    "id": "m03",
+    "date": "2026-08-14",
+    "source": "eng channel",
+    "text": "Diego started moving Harbor session tokens to the device keychain. Estimate: two weeks.",
+    "entities": [
+     "Harbor",
+     "Diego",
+     "keychain"
+    ],
+    "links": {
+     "semantic": [
+      "m07"
+     ],
+     "temporal": [
+      "m02",
+      "m04"
+     ],
+     "causal": [
+      "m05"
+     ],
+     "entity": [
+      "m09"
+     ]
+    }
+   },
+   {
+    "id": "m04",
+    "date": "2026-08-20",
+    "source": "1:1 notes",
+    "text": "Priya asked for weekly launch updates to go to the #harbor-launch channel instead of email.",
+    "entities": [
+     "Priya",
+     "#harbor-launch"
+    ],
+    "links": {
+     "semantic": [
+      "m10"
+     ],
+     "temporal": [
+      "m03",
+      "m05"
+     ],
+     "causal": [],
+     "entity": [
+      "m01",
+      "m08"
+     ]
+    }
+   },
+   {
+    "id": "m05",
+    "date": "2026-08-29",
+    "source": "planning meeting",
+    "text": "Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time.",
+    "entities": [
+     "Harbor",
+     "launch date",
+     "keychain"
+    ],
+    "links": {
+     "semantic": [
+      "m01",
+      "m10"
+     ],
+     "temporal": [
+      "m04",
+      "m06"
+     ],
+     "causal": [
+      "m06",
+      "m11"
+     ],
+     "entity": [
+      "m03"
+     ]
+    }
+   },
+   {
+    "id": "m06",
+    "date": "2026-09-02",
+    "source": "marketing sync",
+    "text": "Marketing rebooked the Harbor launch webinar for October 8 to follow the new date.",
+    "entities": [
+     "Harbor",
+     "marketing",
+     "webinar"
+    ],
+    "links": {
+     "semantic": [
+      "m01"
+     ],
+     "temporal": [
+      "m05",
+      "m07"
+     ],
+     "causal": [],
+     "entity": [
+      "m12"
+     ]
+    }
+   },
+   {
+    "id": "m07",
+    "date": "2026-09-05",
+    "source": "security review",
+    "text": "Follow-up security review passed after the keychain change was merged. Blocker closed.",
+    "entities": [
+     "Harbor",
+     "security review",
+     "keychain"
+    ],
+    "links": {
+     "semantic": [
+      "m02"
+     ],
+     "temporal": [
+      "m06",
+      "m08"
+     ],
+     "causal": [
+      "m11"
+     ],
+     "entity": [
+      "m02",
+      "m03"
+     ]
+    }
+   },
+   {
+    "id": "m08",
+    "date": "2026-09-09",
+    "source": "org update",
+    "text": "Priya is on leave from September 20 to October 3. Sam covers Harbor launch decisions while she is out.",
+    "entities": [
+     "Priya",
+     "Sam",
+     "Harbor"
+    ],
+    "links": {
+     "semantic": [],
+     "temporal": [
+      "m07",
+      "m09"
+     ],
+     "causal": [
+      "m12"
+     ],
+     "entity": [
+      "m01",
+      "m04",
+      "m12"
+     ]
+    }
+   },
+   {
+    "id": "m09",
+    "date": "2026-09-12",
+    "source": "eng channel",
+    "text": "Diego is moving to the payments team after Harbor ships.",
+    "entities": [
+     "Diego",
+     "payments team"
+    ],
+    "links": {
+     "semantic": [],
+     "temporal": [
+      "m08",
+      "m10"
+     ],
+     "causal": [],
+     "entity": [
+      "m03"
+     ]
+    }
+   },
+   {
+    "id": "m10",
+    "date": "2026-09-14",
+    "source": "office chat",
+    "text": "Team lunch for the Harbor crew is on Friday at the ramen place near the office.",
+    "entities": [
+     "Harbor",
+     "lunch"
+    ],
+    "links": {
+     "semantic": [
+      "m01"
+     ],
+     "temporal": [
+      "m09",
+      "m11"
+     ],
+     "causal": [],
+     "entity": []
+    }
+   },
+   {
+    "id": "m11",
+    "date": "2026-09-16",
+    "source": "release checklist",
+    "text": "Harbor release checklist is green except app store screenshots, due September 30.",
+    "entities": [
+     "Harbor",
+     "release checklist",
+     "screenshots"
+    ],
+    "links": {
+     "semantic": [
+      "m05"
+     ],
+     "temporal": [
+      "m10",
+      "m12"
+     ],
+     "causal": [],
+     "entity": [
+      "m12"
+     ]
+    }
+   },
+   {
+    "id": "m12",
+    "date": "2026-09-18",
+    "source": "marketing sync",
+    "text": "Sam approved the final app store screenshots for Harbor.",
+    "entities": [
+     "Sam",
+     "Harbor",
+     "screenshots"
+    ],
+    "links": {
+     "semantic": [
+      "m11"
+     ],
+     "temporal": [
+      "m11"
+     ],
+     "causal": [],
+     "entity": [
+      "m08",
+      "m11"
+     ]
+    }
+   }
+  ],
+  "examples": [
+   {
+    "question": "When does Harbor launch now, and why did the date change?",
+    "gold": [
+     "m05"
+    ]
+   },
+   {
+    "question": "Who should approve Harbor launch decisions on September 25, and why not Priya?",
+    "gold": [
+     "m08"
+    ]
+   },
+   {
+    "question": "Is the Harbor security blocker resolved, and what fixed it?",
+    "gold": [
+     "m02",
+     "m07"
+    ]
+   }
+  ],
+  "policy": {
+   "version": "evidence-budget-v3",
+   "maxRounds": 4,
+   "callsPerRound": 1,
+   "maxRequestInputTokens": 8000,
+   "maxKeptNotes": 6,
+   "maxCandidatesPerRound": 5,
+   "keepThreshold": 0.5,
+   "stopThreshold": 0.7,
+   "jevTimeoutMs": 8000,
+   "candidateOrder": "Frontier ids are sorted ascending; unseen ids beyond maxCandidatesPerRound are dropped for that round and may re-enter later only via links.",
+   "scoreNormalization": "Jev score answers are on a 0-3 level scale. normalized = score / 3. If score is missing, normalized = expected level from probabilities / 3. Values outside the scale, or probabilities that do not sum to 1 +/- 0.05, are invalid.",
+   "rule": "Keep a candidate when normalized relevance >= .5 (level 1.5, between background only and partly answers). Stop complete only when validated P(enough) >= .7 and at least one note is kept. One Jev call per round, so the 4-round cap is also the call cap. Round cap, kept-note cap, the 8,000-token per-request input ceiling, graph exhaustion and no seed match stop incomplete with a warning. Any invalid, missing, or timed-out Jev answer stops fail-closed with the evidence so far, marked incomplete."
+  },
+  "limits": {
+   "perClientPerHour": 6,
+   "instancePerHour": 60,
+   "instancePerDay": 300,
+   "maxTrackedClients": 5000,
+   "cacheTtlMs": 1800000,
+   "killSwitch": "EVIDENCE_BUDGET_LIVE must equal 1 or live runs return 503 (default off).",
+   "clientKey": "x-vercel-forwarded-for, else x-real-ip, else x-forwarded-for. Vercel overwrites X-Forwarded-For to prevent spoofing (https://vercel.com/docs/headers/request-headers). Missing header -> one shared \"unknown\" bucket.",
+   "hardBounds": "Per request: at most 4 Jev calls and 8,000 input tokens, i.e. <= $0.000336 at the dated price. Per instance: <= 60 runs/hour and 300/day, i.e. <= $0.0202/hour and <= $0.101/day. Counters are in memory per instance, so the cross-instance total is not durable; the kill switch is the global stop."
+  },
+  "pricing": {
+   "jevInputUsdPerMillion": 0.042,
+   "jevOutput": "free",
+   "asOf": "2026-09-23",
+   "source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+  }
+ },
+ "run": {
+  "schema": "jev-lab-evidence-budget-v2",
+  "input": {
+   "question": "When does Harbor launch now, and why did the date change?",
+   "questionSha256": "b27a85cbd9c450d67167e24c6fd54a3b9f618d178425ac51ce2fa241156254d6"
+  },
+  "cohort": {
+   "version": "harbor-memory-v1",
+   "sha256": "e5b843b0a6983db57d90264a8a71a32b8b2b2fe56a179b694ce99b612f7daa86",
+   "notes": [
+    {
+     "id": "m01",
+     "date": "2026-08-03",
+     "source": "standup notes",
+     "text": "Harbor app launch is planned for September 15, owned by Priya on the mobile team.",
+     "entities": [
+      "Harbor",
+      "Priya",
+      "mobile team"
+     ],
+     "links": {
+      "semantic": [
+       "m06",
+       "m10"
+      ],
+      "temporal": [
+       "m02"
+      ],
+      "causal": [],
+      "entity": [
+       "m04",
+       "m08"
+      ]
+     }
+    },
+    {
+     "id": "m02",
+     "date": "2026-08-11",
+     "source": "security review",
+     "text": "Security review found that Harbor stores session tokens in plain local storage. Marked as a launch blocker.",
+     "entities": [
+      "Harbor",
+      "security review",
+      "session tokens"
+     ],
+     "links": {
+      "semantic": [
+       "m07"
+      ],
+      "temporal": [
+       "m01",
+       "m03"
+      ],
+      "causal": [
+       "m03",
+       "m05"
+      ],
+      "entity": [
+       "m07"
+      ]
+     }
+    },
+    {
+     "id": "m03",
+     "date": "2026-08-14",
+     "source": "eng channel",
+     "text": "Diego started moving Harbor session tokens to the device keychain. Estimate: two weeks.",
+     "entities": [
+      "Harbor",
+      "Diego",
+      "keychain"
+     ],
+     "links": {
+      "semantic": [
+       "m07"
+      ],
+      "temporal": [
+       "m02",
+       "m04"
+      ],
+      "causal": [
+       "m05"
+      ],
+      "entity": [
+       "m09"
+      ]
+     }
+    },
+    {
+     "id": "m04",
+     "date": "2026-08-20",
+     "source": "1:1 notes",
+     "text": "Priya asked for weekly launch updates to go to the #harbor-launch channel instead of email.",
+     "entities": [
+      "Priya",
+      "#harbor-launch"
+     ],
+     "links": {
+      "semantic": [
+       "m10"
+      ],
+      "temporal": [
+       "m03",
+       "m05"
+      ],
+      "causal": [],
+      "entity": [
+       "m01",
+       "m08"
+      ]
+     }
+    },
+    {
+     "id": "m05",
+     "date": "2026-08-29",
+     "source": "planning meeting",
+     "text": "Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time.",
+     "entities": [
+      "Harbor",
+      "launch date",
+      "keychain"
+     ],
+     "links": {
+      "semantic": [
+       "m01",
+       "m10"
+      ],
+      "temporal": [
+       "m04",
+       "m06"
+      ],
+      "causal": [
+       "m06",
+       "m11"
+      ],
+      "entity": [
+       "m03"
+      ]
+     }
+    },
+    {
+     "id": "m06",
+     "date": "2026-09-02",
+     "source": "marketing sync",
+     "text": "Marketing rebooked the Harbor launch webinar for October 8 to follow the new date.",
+     "entities": [
+      "Harbor",
+      "marketing",
+      "webinar"
+     ],
+     "links": {
+      "semantic": [
+       "m01"
+      ],
+      "temporal": [
+       "m05",
+       "m07"
+      ],
+      "causal": [],
+      "entity": [
+       "m12"
+      ]
+     }
+    },
+    {
+     "id": "m07",
+     "date": "2026-09-05",
+     "source": "security review",
+     "text": "Follow-up security review passed after the keychain change was merged. Blocker closed.",
+     "entities": [
+      "Harbor",
+      "security review",
+      "keychain"
+     ],
+     "links": {
+      "semantic": [
+       "m02"
+      ],
+      "temporal": [
+       "m06",
+       "m08"
+      ],
+      "causal": [
+       "m11"
+      ],
+      "entity": [
+       "m02",
+       "m03"
+      ]
+     }
+    },
+    {
+     "id": "m08",
+     "date": "2026-09-09",
+     "source": "org update",
+     "text": "Priya is on leave from September 20 to October 3. Sam covers Harbor launch decisions while she is out.",
+     "entities": [
+      "Priya",
+      "Sam",
+      "Harbor"
+     ],
+     "links": {
+      "semantic": [],
+      "temporal": [
+       "m07",
+       "m09"
+      ],
+      "causal": [
+       "m12"
+      ],
+      "entity": [
+       "m01",
+       "m04",
+       "m12"
+      ]
+     }
+    },
+    {
+     "id": "m09",
+     "date": "2026-09-12",
+     "source": "eng channel",
+     "text": "Diego is moving to the payments team after Harbor ships.",
+     "entities": [
+      "Diego",
+      "payments team"
+     ],
+     "links": {
+      "semantic": [],
+      "temporal": [
+       "m08",
+       "m10"
+      ],
+      "causal": [],
+      "entity": [
+       "m03"
+      ]
+     }
+    },
+    {
+     "id": "m10",
+     "date": "2026-09-14",
+     "source": "office chat",
+     "text": "Team lunch for the Harbor crew is on Friday at the ramen place near the office.",
+     "entities": [
+      "Harbor",
+      "lunch"
+     ],
+     "links": {
+      "semantic": [
+       "m01"
+      ],
+      "temporal": [
+       "m09",
+       "m11"
+      ],
+      "causal": [],
+      "entity": []
+     }
+    },
+    {
+     "id": "m11",
+     "date": "2026-09-16",
+     "source": "release checklist",
+     "text": "Harbor release checklist is green except app store screenshots, due September 30.",
+     "entities": [
+      "Harbor",
+      "release checklist",
+      "screenshots"
+     ],
+     "links": {
+      "semantic": [
+       "m05"
+      ],
+      "temporal": [
+       "m10",
+       "m12"
+      ],
+      "causal": [],
+      "entity": [
+       "m12"
+      ]
+     }
+    },
+    {
+     "id": "m12",
+     "date": "2026-09-18",
+     "source": "marketing sync",
+     "text": "Sam approved the final app store screenshots for Harbor.",
+     "entities": [
+      "Sam",
+      "Harbor",
+      "screenshots"
+     ],
+     "links": {
+      "semantic": [
+       "m11"
+      ],
+      "temporal": [
+       "m11"
+      ],
+      "causal": [],
+      "entity": [
+       "m08",
+       "m11"
+      ]
+     }
+    }
+   ]
+  },
+  "frozenPolicy": {
+   "version": "evidence-budget-v3",
+   "maxRounds": 4,
+   "callsPerRound": 1,
+   "maxRequestInputTokens": 8000,
+   "maxKeptNotes": 6,
+   "maxCandidatesPerRound": 5,
+   "keepThreshold": 0.5,
+   "stopThreshold": 0.7,
+   "jevTimeoutMs": 8000,
+   "candidateOrder": "Frontier ids are sorted ascending; unseen ids beyond maxCandidatesPerRound are dropped for that round and may re-enter later only via links.",
+   "scoreNormalization": "Jev score answers are on a 0-3 level scale. normalized = score / 3. If score is missing, normalized = expected level from probabilities / 3. Values outside the scale, or probabilities that do not sum to 1 +/- 0.05, are invalid.",
+   "rule": "Keep a candidate when normalized relevance >= .5 (level 1.5, between background only and partly answers). Stop complete only when validated P(enough) >= .7 and at least one note is kept. One Jev call per round, so the 4-round cap is also the call cap. Round cap, kept-note cap, the 8,000-token per-request input ceiling, graph exhaustion and no seed match stop incomplete with a warning. Any invalid, missing, or timed-out Jev answer stops fail-closed with the evidence so far, marked incomplete."
+  },
+  "limits": {
+   "perClientPerHour": 6,
+   "instancePerHour": 60,
+   "instancePerDay": 300,
+   "maxTrackedClients": 5000,
+   "cacheTtlMs": 1800000,
+   "killSwitch": "EVIDENCE_BUDGET_LIVE must equal 1 or live runs return 503 (default off).",
+   "clientKey": "x-vercel-forwarded-for, else x-real-ip, else x-forwarded-for. Vercel overwrites X-Forwarded-For to prevent spoofing (https://vercel.com/docs/headers/request-headers). Missing header -> one shared \"unknown\" bucket.",
+   "hardBounds": "Per request: at most 4 Jev calls and 8,000 input tokens, i.e. <= $0.000336 at the dated price. Per instance: <= 60 runs/hour and 300/day, i.e. <= $0.0202/hour and <= $0.101/day. Counters are in memory per instance, so the cross-instance total is not durable; the kill switch is the global stop."
+  },
+  "seeds": [
+   "m01",
+   "m05",
+   "m06"
+  ],
+  "rounds": [
+   {
+    "round": 1,
+    "candidateIds": [
+     "m01",
+     "m05",
+     "m06"
+    ],
+    "request": {
+     "state": {
+      "question": "When does Harbor launch now, and why did the date change?",
+      "keptEvidence": [],
+      "candidates": [
+       {
+        "id": "m01",
+        "text": "Harbor app launch is planned for September 15, owned by Priya on the mobile team."
+       },
+       {
+        "id": "m05",
+        "text": "Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time."
+       },
+       {
+        "id": "m06",
+        "text": "Marketing rebooked the Harbor launch webinar for October 8 to follow the new date."
+       }
+      ]
+     },
+     "questions": {
+      "enough": {
+       "type": "choice",
+       "instructions": "Using only the kept evidence plus the candidates, is there enough evidence to answer every part of the question, such as when, why, or who?",
+       "criteria": {
+        "enough": "The evidence answers every part of the question",
+        "more": "Some part of the question is still unsupported"
+       }
+      },
+      "view": {
+       "type": "choice",
+       "instructions": "If more evidence is needed, which kind of link is most likely to lead to it?",
+       "criteria": {
+        "semantic": "Notes about the same topic",
+        "temporal": "Notes just before or after in time",
+        "causal": "Notes about causes or consequences",
+        "entity": "Notes about the same person, team, or system"
+       }
+      },
+      "c0": {
+       "type": "score",
+       "instructions": "Score how much candidate note m01 helps answer the question. Candidate m01: \"Harbor app launch is planned for September 15, owned by Priya on the mobile team.\"",
+       "criteria": [
+        "irrelevant",
+        "background only",
+        "partly answers",
+        "directly answers a needed part"
+       ]
+      },
+      "c1": {
+       "type": "score",
+       "instructions": "Score how much candidate note m05 helps answer the question. Candidate m05: \"Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time.\"",
+       "criteria": [
+        "irrelevant",
+        "background only",
+        "partly answers",
+        "directly answers a needed part"
+       ]
+      },
+      "c2": {
+       "type": "score",
+       "instructions": "Score how much candidate note m06 helps answer the question. Candidate m06: \"Marketing rebooked the Harbor launch webinar for October 8 to follow the new date.\"",
+       "criteria": [
+        "irrelevant",
+        "background only",
+        "partly answers",
+        "directly answers a needed part"
+       ]
+      }
+     }
+    },
+    "rawAnswers": {
+     "enough": {
+      "choice": "more",
+      "probabilities": {
+       "enough": 0.21,
+       "more": 0.79
+      }
+     },
+     "view": {
+      "choice": "causal",
+      "probabilities": {
+       "causal": 0.6,
+       "semantic": 0.2,
+       "temporal": 0.1,
+       "entity": 0.1
+      }
+     },
+     "c0": {
+      "type": "score",
+      "score": 0,
+      "probabilities": {
+       "0": 1,
+       "1": 0,
+       "2": 0,
+       "3": 0
+      }
+     },
+     "c1": {
+      "type": "score",
+      "score": 3,
+      "probabilities": {
+       "0": 0,
+       "1": 0,
+       "2": 0,
+       "3": 1
+      }
+     },
+     "c2": {
+      "type": "score",
+      "score": 0,
+      "probabilities": {
+       "0": 1,
+       "1": 0,
+       "2": 0,
+       "3": 0
+      }
+     }
+    },
+    "scores": [
+     {
+      "id": "m01",
+      "ok": true,
+      "normalized": 0,
+      "path": "score",
+      "raw": 0,
+      "expectedFromProbabilities": 0,
+      "mismatch": false
+     },
+     {
+      "id": "m05",
+      "ok": true,
+      "normalized": 1,
+      "path": "score",
+      "raw": 3,
+      "expectedFromProbabilities": 3,
+      "mismatch": false
+     },
+     {
+      "id": "m06",
+      "ok": true,
+      "normalized": 0,
+      "path": "score",
+      "raw": 0,
+      "expectedFromProbabilities": 0,
+      "mismatch": false
+     }
+    ],
+    "inputTokens": 400,
+    "tokenSource": "provider_usage",
+    "kept": [
+     "m05"
+    ],
+    "pEnough": 0.21,
+    "nextView": "causal",
+    "viewProbabilities": {
+     "semantic": 0.2,
+     "temporal": 0.1,
+     "causal": 0.6,
+     "entity": 0.1
+    }
+   },
+   {
+    "round": 2,
+    "candidateIds": [
+     "m11"
+    ],
+    "request": {
+     "state": {
+      "question": "When does Harbor launch now, and why did the date change?",
+      "keptEvidence": [
+       {
+        "id": "m05",
+        "text": "Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time."
+       }
+      ],
+      "candidates": [
+       {
+        "id": "m11",
+        "text": "Harbor release checklist is green except app store screenshots, due September 30."
+       }
+      ]
+     },
+     "questions": {
+      "enough": {
+       "type": "choice",
+       "instructions": "Using only the kept evidence plus the candidates, is there enough evidence to answer every part of the question, such as when, why, or who?",
+       "criteria": {
+        "enough": "The evidence answers every part of the question",
+        "more": "Some part of the question is still unsupported"
+       }
+      },
+      "view": {
+       "type": "choice",
+       "instructions": "If more evidence is needed, which kind of link is most likely to lead to it?",
+       "criteria": {
+        "semantic": "Notes about the same topic",
+        "temporal": "Notes just before or after in time",
+        "causal": "Notes about causes or consequences",
+        "entity": "Notes about the same person, team, or system"
+       }
+      },
+      "c0": {
+       "type": "score",
+       "instructions": "Score how much candidate note m11 helps answer the question. Candidate m11: \"Harbor release checklist is green except app store screenshots, due September 30.\"",
+       "criteria": [
+        "irrelevant",
+        "background only",
+        "partly answers",
+        "directly answers a needed part"
+       ]
+      }
+     }
+    },
+    "rawAnswers": {
+     "enough": {
+      "choice": "enough",
+      "probabilities": {
+       "enough": 0.88,
+       "more": 0.12
+      }
+     },
+     "view": {
+      "choice": "causal",
+      "probabilities": {
+       "causal": 0.6,
+       "semantic": 0.2,
+       "temporal": 0.1,
+       "entity": 0.1
+      }
+     },
+     "c0": {
+      "type": "score",
+      "score": 0,
+      "probabilities": {
+       "0": 1,
+       "1": 0,
+       "2": 0,
+       "3": 0
+      }
+     }
+    },
+    "scores": [
+     {
+      "id": "m11",
+      "ok": true,
+      "normalized": 0,
+      "path": "score",
+      "raw": 0,
+      "expectedFromProbabilities": 0,
+      "mismatch": false
+     }
+    ],
+    "inputTokens": 400,
+    "tokenSource": "provider_usage",
+    "kept": [
+     "m05"
+    ],
+    "pEnough": 0.88
+   }
+  ],
+  "outcome": {
+   "stopReason": "controller_enough",
+   "complete": true,
+   "warning": null,
+   "evidencePacket": [
+    {
+     "id": "m05",
+     "date": "2026-08-29",
+     "source": "planning meeting",
+     "text": "Harbor launch moved from September 15 to October 6 because the keychain migration will not finish in time."
+    }
+   ],
+   "controllerCalls": 2,
+   "notesInspected": 4,
+   "notesInMemory": 12
+  },
+  "check": {
+   "gold": [
+    "m05"
+   ],
+   "recall": 1,
+   "precision": 1,
+   "missing": [],
+   "extra": []
+  },
+  "provenance": {
+   "controller": "MOCK-not-jev",
+   "controllerRoute": "direct-typesafe",
+   "endpoint": "https://api.typesafe.ai/v1/systemone",
+   "answerModel": "none - this app returns the evidence packet only"
+  },
+  "runId": "evidence-budget-1790160361762",
+  "createdAt": "2026-09-23T10:46:01.762Z",
+  "cached": false,
+  "economics": {
+   "currency": "USD",
+   "pricingSnapshot": {
+    "jevInputUsdPerMillion": 0.042,
+    "jevOutput": "free",
+    "asOf": "2026-09-23",
+    "source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+   },
+   "jevInputTokens": 800,
+   "jevTokenSource": "provider_usage",
+   "jevEstimatedCostUsd": 0.000033600000000000004,
+   "label": "Estimated from input tokens and the dated public price. Not charged spend.",
+   "answerContextTokensEstimated": {
+    "method": "chars_div_4",
+    "fullMemory": 257,
+    "evidencePacket": 27,
+    "controllerReadVsSaved": {
+     "controllerRead": 800,
+     "downstreamSaved": 230
+    }
+   }
+  },
+  "latency": {
+   "totalMs": 9,
+   "perRoundMs": [
+    0,
+    0
+   ]
+  },
+  "evidence": {
+   "replayCoreSha256": "bb33808f9852a2abb7f668f6412c32febe3ce1923dbab5a8c5b1f42b1c6d522d",
+   "hashScope": "sha256 of JSON.stringify(replayCore): input, enclosed cohort, frozen policy, seeds, every round request and raw Jev answer, outcome, check, provenance. Excludes runId, createdAt, cached, latency and economics. Unsigned.",
+   "replay": "Recompute seeds from word overlap. For each round re-apply readScore/readEnough/readView and frozenPolicy to rawAnswers to recompute kept notes, next frontier and stop reason. Recompute cost from jevInputTokens and pricingSnapshot."
+  }
+ }
+}
