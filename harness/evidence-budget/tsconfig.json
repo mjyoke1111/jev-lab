@@ -1,1 +1,1 @@
-{"compilerOptions":{"target":"ES2022","module":"NodeNext","moduleResolution":"NodeNext","strict":true,"esModuleInterop":true,"skipLibCheck":true,"noEmit":true,"allowImportingTsExtensions":true,"types":["node"]},"files":["../../api/run-evidence-budget.ts","mock-check.mts"]}
+{"compilerOptions":{"target":"ES2022","module":"NodeNext","moduleResolution":"NodeNext","strict":true,"esModuleInterop":true,"skipLibCheck":true,"noEmit":true,"allowImportingTsExtensions":true,"types":["node"]},"files":["../../api/run-lab.ts","../../api/_evidence-budget.ts","mock-check.mts"]}

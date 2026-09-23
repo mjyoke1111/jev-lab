@@ -4,6 +4,14 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/api/run-evidence-budget",
+      "destination": "/api/run-lab?app=evidence-budget"
+    },
+    {
+      "source": "/api/run-marbles",
+      "destination": "/api/run-lab?app=marbles"
+    },
+    {
       "source": "/((?!api/|runs/|assets/).*)",
       "destination": "/index.html"
     }
@@ -30,9 +38,6 @@
     "api/run-parkour.ts": {
       "maxDuration": 30
     },
-    "api/run-marbles.ts": {
-      "maxDuration": 30
-    },
     "api/run-autonomy-gate.ts": {
       "maxDuration": 30
     },
@@ -40,6 +45,9 @@
       "maxDuration": 30
     },
     "api/run-challenge-lab.ts": {
+      "maxDuration": 30
+    },
+    "api/run-lab.ts": {
       "maxDuration": 30
     }
   },

@@ -1,6 +1,6 @@
 // Control-flow and validation checks with a stubbed Jev. NOT Jev evidence.
 // Run: npx tsx harness/evidence-budget/mock-check.mts   (writes harness/evidence-budget/mock-run.json for layout captures)
-import{writeFileSync}from'node:fs';import handler,{allow,limiterSize}from'../../api/run-evidence-budget.ts';
+import{writeFileSync}from'node:fs';import handler,{allow,limiterSize}from'../../api/_evidence-budget.ts';
 process.env.TYPESAFE_API_KEY='mock';process.env.EVIDENCE_BUDGET_LIVE='1';let ipn=0;
 const call=async(body:any,method='POST')=>{let out:any={};const res:any={status(c:number){out.code=c;return res},json(j:any){out.body=j;return res},setHeader(){}};await handler({method,body,headers:{'x-vercel-forwarded-for':`10.0.0.${++ipn}`},socket:{}} as any,res);return out};
 const levels=(lv:number)=>({type:'score',score:lv,probabilities:Object.fromEntries([0,1,2,3].map(i=>[String(i),i===Math.round(lv)?1:0]))});
