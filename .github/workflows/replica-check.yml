@@ -1,0 +1,72 @@
+name: Replica check (jev-rs on open model vs recorded Jev receipts)
+
+# REPLICA - not Jev. No hosted Jev call and no secrets: the Jev side is replayed from
+# public/runs/challenge-lab-recorded.json. Free GitHub-hosted CPU runner, zero spend.
+on:
+  workflow_dispatch:
+  push:
+    branches: [replica-check-run]
+    paths: ['harness/replica-check/**', '.github/workflows/replica-check.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  replica-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      LLAMA_TAG: b11147
+      LLAMA_SHA256: e595f4cf393b3c9846a19bea6cf4bc24ae97982aecd7042de92de99c0ed320bd
+      JEVRS_TAG: v0.1.0
+      JEVRS_SHA256: 69ba73411a0362bef107b5572b3596d76bbf8e40e5ac25246189b85f32efe812
+      MODEL_REPO: Qwen/Qwen3-4B-GGUF
+      MODEL_REV: bc640142c66e1fdd12af0bd68f40445458f3869b
+      MODEL_FILE: Qwen3-4B-Q4_K_M.gguf
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Download pinned binaries and model
+        run: |
+          set -euo pipefail
+          mkdir -p rc && cd rc
+          curl -fsSL -o llama.tgz "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_TAG}/llama-${LLAMA_TAG}-bin-ubuntu-x64.tar.gz"
+          echo "${LLAMA_SHA256}  llama.tgz" | sha256sum -c -
+          tar xzf llama.tgz
+          curl -fsSL -o jev.tgz "https://github.com/yijunyu/jev-rs/releases/download/${JEVRS_TAG}/jev-x86_64-unknown-linux-gnu.tar.gz"
+          echo "${JEVRS_SHA256}  jev.tgz" | sha256sum -c -
+          tar xzf jev.tgz
+          curl -fsSL -o model.gguf "https://huggingface.co/${MODEL_REPO}/resolve/${MODEL_REV}/${MODEL_FILE}"
+          sha256sum model.gguf | tee model.sha256
+          nproc; free -m
+
+      - name: Run replica check (permutations 1 and 4)
+        run: |
+          set -euo pipefail
+          RC=$PWD/rc; J=$RC/jev-x86_64-unknown-linux-gnu/jev
+          LS=$(find $RC -name llama-server -type f | head -1)
+          $LS -m $RC/model.gguf --port 8089 -np 2 -c 8192 -t $(nproc) > $RC/llama.log 2>&1 &
+          for i in $(seq 1 120); do curl -sf localhost:8089/health >/dev/null && break; sleep 2; done
+          for P in 1 4; do
+            $J --backend http://127.0.0.1:8089 --permutations $P serve --bind 127.0.0.1:8090 > $RC/jev-$P.log 2>&1 &
+            JP=$!; sleep 2
+            printf '{"model":"%s %s @ %s","modelSha256":"%s","jevRsVersion":"%s","jevRsBinarySha256":"%s","llamaCpp":"%s ubuntu-x64 CPU","host":"GitHub-hosted ubuntu-latest, %s vCPU","permutations":%s,"calibration":"none","runUrl":"%s"}' \
+              "$MODEL_REPO" "$MODEL_FILE" "$MODEL_REV" "$(cut -c1-64 $RC/model.sha256)" "$($J --version)" "$(sha256sum $J | cut -c1-64)" "$LLAMA_TAG" "$(nproc)" "$P" \
+              "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" > $RC/meta-$P.json
+            node harness/replica-check/run.mjs --endpoint http://127.0.0.1:8090 --label "qwen3-4b-q4km-perm$P" \
+              --meta $RC/meta-$P.json --out harness/replica-check/results/replica-qwen3-4b-perm$P.json
+            kill $JP; sleep 1
+          done
+          git rev-parse HEAD > harness/replica-check/results/git-commit.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: replica-check-results
+          path: |
+            harness/replica-check/results/
+            rc/*.log
+            rc/model.sha256

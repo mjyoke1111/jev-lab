@@ -1,0 +1,445 @@
+{
+ "schema": "jev-replica-check-v1",
+ "label": "REPLICA - not Jev",
+ "replica": {
+  "name": "qwen3-0.6b-q8",
+  "engine": "yijunyu/jev-rs",
+  "model": "Qwen/Qwen3-0.6B-GGUF Q8_0",
+  "modelSha256": "9465e63a22add5354d9bb4b99e90117043c7124007664907259bd16d043bb031",
+  "jevRsBinarySha256": "8ec12512f54cb8595ca48973ea81eb287e31ab3b77bd72af69b67df669ddc110",
+  "jevRsVersion": "jev 0.1.0",
+  "llamaCpp": "b11147 ubuntu-x64 CPU",
+  "host": "sandbox 2 vCPU / 2 GB",
+  "permutations": 1,
+  "calibration": "none",
+  "purpose": "plumbing check only"
+ },
+ "jevSide": "Recorded real Jev receipts (public/runs/challenge-lab-recorded.json), replayed. No hosted Jev call in this run.",
+ "receiptsFileSha256": "4b224b745bd8769e9088df69e2c6eca54968839ea1af4ec87522e41ba20997d9",
+ "cohortFileSha256": "81b5d28ea307894f8b5f306798d54797157dc0eed728804989114cebba85a584",
+ "runnerSha256": "9db60f9d0c9a66fdc107488cec41a9d2216d2a8c6086f6c0b9423ee8c3804b4d",
+ "createdAt": "2026-09-23T19:11:58.174Z",
+ "caveats": [
+  "12 cases in 2 packs: a sanity comparison, not a benchmark.",
+  "Replica outputs come from an open model through a Jev-compatible wrapper. They say nothing about hosted Jev quality or speed.",
+  "Jev latency is not compared: receipts hold one end-to-end hosted request per pack, measured on different hardware and network."
+ ],
+ "summary": {
+  "cases": 12,
+  "jevCorrect": 9,
+  "replicaCorrect": 3,
+  "agreement": 4,
+  "meanBrierJev": 0.2616,
+  "meanBrierReplica": 1.4651,
+  "meanTotalVariation": 0.6386,
+  "replicaLatencyMsPerRequest": [
+   5939,
+   4906
+  ]
+ },
+ "packs": [
+  {
+   "pack": "support",
+   "title": "Support priority",
+   "cohortSha256": "26f5427951d505f691f651744aef3cca28f7fa95f0c2acace9d7392b47dd63da",
+   "jevReceipt": {
+    "model": "jev-1.13.0",
+    "createdAt": "2026-09-21T12:45:56.940Z",
+    "runSha256": "04dafc3efc8e7c382515a6d9141f826cb5fe8f72d7011cc06437b610676eb65a"
+   },
+   "request": {
+    "sha256": "05783c53f4b3ca6ba62dd23f1cc7598f63c427227a65d3508962e746064b3069"
+   },
+   "replicaResponseSha256": "3e0220005fbb5d4d8e0ccea0072f827f507395196012708a4069d02f8f389bf5",
+   "replicaUsage": {
+    "input_tokens": 709,
+    "output_tokens": 0
+   },
+   "latencyMs": 5939,
+   "rows": [
+    {
+     "id": "s1",
+     "text": "Checkout charges twice for every retry.",
+     "expected": "p0",
+     "jev": {
+      "choice": "p1",
+      "probabilities": {
+       "p0": 0.33,
+       "p1": 0.67,
+       "p2": 0,
+       "p3": 0
+      },
+      "correct": false,
+      "brier": 0.8977999999999999
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0.0035,
+       "p1": 0.0007,
+       "p2": 0,
+       "p3": 0.9958
+      },
+      "confidence": 0.9944,
+      "correct": false,
+      "brier": 1.9846303800000002
+     },
+     "agree": false,
+     "totalVariation": 0.9958
+    },
+    {
+     "id": "s2",
+     "text": "CSV export is slow but completes.",
+     "expected": "p2",
+     "jev": {
+      "choice": "p2",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0.01,
+       "p2": 0.5,
+       "p3": 0.49
+      },
+      "correct": true,
+      "brier": 0.49019999999999997
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0.0001,
+       "p2": 0,
+       "p3": 0.9999
+      },
+      "confidence": 0.9998,
+      "correct": false,
+      "brier": 1.99980002
+     },
+     "agree": false,
+     "totalVariation": 0.5099
+    },
+    {
+     "id": "s3",
+     "text": "How do I change my avatar?",
+     "expected": "p3",
+     "jev": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0,
+       "p2": 0,
+       "p3": 1
+      },
+      "correct": true,
+      "brier": 0
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0,
+       "p2": 0,
+       "p3": 1
+      },
+      "confidence": 0.9999,
+      "correct": true,
+      "brier": 0
+     },
+     "agree": true,
+     "totalVariation": 0
+    },
+    {
+     "id": "s4",
+     "text": "SSO login is down for all enterprise users.",
+     "expected": "p1",
+     "jev": {
+      "choice": "p0",
+      "probabilities": {
+       "p0": 0.58,
+       "p1": 0.42,
+       "p2": 0,
+       "p3": 0
+      },
+      "correct": false,
+      "brier": 0.6728000000000001
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0.0002,
+       "p1": 0.0002,
+       "p2": 0.0001,
+       "p3": 0.9995
+      },
+      "confidence": 0.9994,
+      "correct": false,
+      "brier": 1.9986003400000003
+     },
+     "agree": false,
+     "totalVariation": 0.9996
+    },
+    {
+     "id": "s5",
+     "text": "A public bucket contains customer invoices.",
+     "expected": "p0",
+     "jev": {
+      "choice": "p0",
+      "probabilities": {
+       "p0": 1,
+       "p1": 0,
+       "p2": 0,
+       "p3": 0
+      },
+      "correct": true,
+      "brier": 0
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0,
+       "p2": 0,
+       "p3": 1
+      },
+      "confidence": 0.9999,
+      "correct": false,
+      "brier": 2
+     },
+     "agree": false,
+     "totalVariation": 1
+    },
+    {
+     "id": "s6",
+     "text": "Dark mode has low contrast in one modal.",
+     "expected": "p2",
+     "jev": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0,
+       "p2": 0.27,
+       "p3": 0.73
+      },
+      "correct": false,
+      "brier": 1.0657999999999999
+     },
+     "replica": {
+      "choice": "p3",
+      "probabilities": {
+       "p0": 0,
+       "p1": 0,
+       "p2": 0,
+       "p3": 1
+      },
+      "confidence": 1,
+      "correct": false,
+      "brier": 2
+     },
+     "agree": true,
+     "totalVariation": 0.27
+    }
+   ]
+  },
+  {
+   "pack": "inbox",
+   "title": "Inbox action",
+   "cohortSha256": "995ed10c49b11925325f24b4b18a3ddb353a765599a144744ec51ffa82811b67",
+   "jevReceipt": {
+    "model": "jev-1.13.0",
+    "createdAt": "2026-09-21T12:45:57.951Z",
+    "runSha256": "16fd4555b04e8688691fc1cdbe3896b44efbb609432a613a7609d7a43f9cb619"
+   },
+   "request": {
+    "sha256": "863b510fadaf1dd1ff78494f8872f7e7fcd7feea0046b685d2de40114fe92827"
+   },
+   "replicaResponseSha256": "428a86d1b5f6d06c94771a86a25b0cd0c094393b40b5261e933bf76a717a05fd",
+   "replicaUsage": {
+    "input_tokens": 600,
+    "output_tokens": 0
+   },
+   "latencyMs": 4906,
+   "rows": [
+    {
+     "id": "i1",
+     "text": "Please approve the revised launch date by 3pm.",
+     "expected": "act",
+     "jev": {
+      "choice": "act",
+      "probabilities": {
+       "act": 1,
+       "learn": 0,
+       "keep": 0,
+       "ignore": 0
+      },
+      "correct": true,
+      "brier": 0
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 1,
+       "learn": 0,
+       "keep": 0,
+       "ignore": 0
+      },
+      "confidence": 1,
+      "correct": true,
+      "brier": 0
+     },
+     "agree": true,
+     "totalVariation": 0
+    },
+    {
+     "id": "i2",
+     "text": "Architecture guide for the new event pipeline.",
+     "expected": "learn",
+     "jev": {
+      "choice": "learn",
+      "probabilities": {
+       "act": 0,
+       "learn": 0.93,
+       "keep": 0.07,
+       "ignore": 0
+      },
+      "correct": true,
+      "brier": 0.009799999999999993
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 0.9813981398139814,
+       "learn": 0.005700570057005701,
+       "keep": 0.007600760076007601,
+       "ignore": 0.0053005300530053
+      },
+      "confidence": 0.975,
+      "correct": false,
+      "brier": 1.951859532387882
+     },
+     "agree": false,
+     "totalVariation": 0.9866986698669867
+    },
+    {
+     "id": "i3",
+     "text": "Your monitor stand receipt.",
+     "expected": "keep",
+     "jev": {
+      "choice": "keep",
+      "probabilities": {
+       "act": 0.01,
+       "learn": 0,
+       "keep": 0.96,
+       "ignore": 0.03
+      },
+      "correct": true,
+      "brier": 0.002600000000000003
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 0.9945,
+       "learn": 0.0003,
+       "keep": 0.0022,
+       "ignore": 0.003
+      },
+      "confidence": 0.9926,
+      "correct": false,
+      "brier": 1.98464418
+     },
+     "agree": false,
+     "totalVariation": 0.9848
+    },
+    {
+     "id": "i4",
+     "text": "You won a prize, click this unknown link.",
+     "expected": "ignore",
+     "jev": {
+      "choice": "ignore",
+      "probabilities": {
+       "act": 0.01,
+       "learn": 0,
+       "keep": 0,
+       "ignore": 0.99
+      },
+      "correct": true,
+      "brier": 0.0002000000000000002
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 0.9823000000000001,
+       "learn": 0.0005000000000000001,
+       "keep": 0.0006000000000000001,
+       "ignore": 0.016600000000000004
+      },
+      "confidence": 0.9763,
+      "correct": false,
+      "brier": 1.9319894600000003
+     },
+     "agree": false,
+     "totalVariation": 0.9734
+    },
+    {
+     "id": "i5",
+     "text": "Can you send the final deck to Priya?",
+     "expected": "act",
+     "jev": {
+      "choice": "act",
+      "probabilities": {
+       "act": 1,
+       "learn": 0,
+       "keep": 0,
+       "ignore": 0
+      },
+      "correct": true,
+      "brier": 0
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 0.9941000000000001,
+       "learn": 0.0005000000000000001,
+       "keep": 0.0009000000000000001,
+       "ignore": 0.0045000000000000005
+      },
+      "confidence": 0.9921,
+      "correct": true,
+      "brier": 0.00005611999999999889
+     },
+     "agree": true,
+     "totalVariation": 0.005899999999999953
+    },
+    {
+     "id": "i6",
+     "text": "Weekly promotional newsletter.",
+     "expected": "ignore",
+     "jev": {
+      "choice": "ignore",
+      "probabilities": {
+       "act": 0,
+       "learn": 0,
+       "keep": 0,
+       "ignore": 1
+      },
+      "correct": true,
+      "brier": 0
+     },
+     "replica": {
+      "choice": "act",
+      "probabilities": {
+       "act": 0.9222,
+       "learn": 0.0033,
+       "keep": 0.0122,
+       "ignore": 0.0623
+      },
+      "confidence": 0.8963,
+      "correct": false,
+      "brier": 1.72989386
+     },
+     "agree": false,
+     "totalVariation": 0.9377
+    }
+   ]
+  }
+ ],
+ "artifactSha256": "f53159becbc61ee1c62bcdf514ef48d4ce49f28822d43e7463db73217adb2ac8"
+}

@@ -1,0 +1,87 @@
+{
+ "source": "api/run-challenge-lab.ts @ 57ae7b9",
+ "packs": {
+  "support": {
+   "title": "Support priority",
+   "criteria": {
+    "p0": "Active security, payment, or total-service emergency.",
+    "p1": "Major degradation or blocked paid workflow.",
+    "p2": "Limited defect with a workaround.",
+    "p3": "Question, request, or low-impact issue."
+   },
+   "cases": [
+    [
+     "s1",
+     "Checkout charges twice for every retry.",
+     "p0"
+    ],
+    [
+     "s2",
+     "CSV export is slow but completes.",
+     "p2"
+    ],
+    [
+     "s3",
+     "How do I change my avatar?",
+     "p3"
+    ],
+    [
+     "s4",
+     "SSO login is down for all enterprise users.",
+     "p1"
+    ],
+    [
+     "s5",
+     "A public bucket contains customer invoices.",
+     "p0"
+    ],
+    [
+     "s6",
+     "Dark mode has low contrast in one modal.",
+     "p2"
+    ]
+   ]
+  },
+  "inbox": {
+   "title": "Inbox action",
+   "criteria": {
+    "act": "Requires a concrete action or reply.",
+    "learn": "Useful knowledge to read and understand.",
+    "keep": "Record to retain with no action.",
+    "ignore": "No action or durable value."
+   },
+   "cases": [
+    [
+     "i1",
+     "Please approve the revised launch date by 3pm.",
+     "act"
+    ],
+    [
+     "i2",
+     "Architecture guide for the new event pipeline.",
+     "learn"
+    ],
+    [
+     "i3",
+     "Your monitor stand receipt.",
+     "keep"
+    ],
+    [
+     "i4",
+     "You won a prize, click this unknown link.",
+     "ignore"
+    ],
+    [
+     "i5",
+     "Can you send the final deck to Priya?",
+     "act"
+    ],
+    [
+     "i6",
+     "Weekly promotional newsletter.",
+     "ignore"
+    ]
+   ]
+  }
+ }
+}
