@@ -1,0 +1,4 @@
+2026-09-24T23:26:39+10:00	verify-key	200	282ms	85c3979da14bdd7a
+2026-09-24T23:27:09+10:00	batch1-consistency	50 calls	4df8a043aa3e5c42
+2026-09-24T23:27:32+10:00	batch1b-fix	26 calls	ca8c66383191b9e9
+2026-09-24T23:29:01+10:00	batch2-banking77-calibration	64 calls	53b60b4fd2980b4e
